@@ -19,6 +19,9 @@ downloadable Whisper models.
 - Windows 11 Home/Pro x64 is the primary validation target.
 - Tiny, Base, Small, Medium, and Large v3 Turbo models can be selected without a paid model tier.
 - Models are downloaded only when requested and are not bundled into the installer.
+- The current `0.1.x` evaluation limits are 15-minute files, 15 dictation sessions per local day,
+  5 minutes per live-caption session, and 3 meeting summaries per local day. English translation
+  is not included in the free Early Access build. No paid plan is currently sold.
 - Dictation, live subtitles, file transcription, and extractive meeting-note assistance run on
   the device after a model is installed.
 - There is no PCSSAK account, advertising, analytics, tracking, or automatic crash upload in the
@@ -38,6 +41,8 @@ When the first approved build is published, download it only from the
 or the official PCSSAK product page.
 
 - Compare the installer SHA-256 with `SHA256SUMS.txt` in the same release.
+- Published release tags and assets are protected by GitHub immutable releases; a new version is
+  issued instead of silently replacing an approved installer.
 - The initial Early Access installer may not yet have a Windows Authenticode publisher
   signature. If so, Windows can show **Unknown publisher** or a SmartScreen warning.
 - Never disable Microsoft Defender or SmartScreen to install the application.
@@ -67,4 +72,3 @@ file paths, or confidential documents in a public issue.
 PCssak ModuSori binaries will be licensed under the approved PCssak ModuSori EULA. Third-party
 open-source components and Whisper model weights remain under their own licences and notices.
 PCSSAK is not affiliated with or endorsed by OpenAI, Hugging Face, or GitHub.
-
