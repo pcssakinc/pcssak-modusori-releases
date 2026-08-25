@@ -1,67 +1,125 @@
-# PCssak ModuSori 공식 Windows 다운로드
+# PCssak ModuSori — 공식 Windows 다운로드
 
-[English](README.md) · [PCSSAK](https://pcssak.com) · [최신 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/latest)
+[English](README.md) · [제품 홈페이지](https://pcssak.co.kr/modusori) · [설치 안내](docs/INSTALLATION.ko.md) · [v0.1.0 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.0)
 
-> **현재 상태: 공개 설치 프로그램이 아직 없습니다.** 프로그램의 로컬 품질·법률·호환성·
-> 브랜드 권리 검사를 마치는 중입니다. 다른 곳에서 PCssak ModuSori라고 주장하는 파일을
-> 내려받지 마십시오.
+**말한 내용을 자신의 Windows PC에서 문자로 바꿉니다.** PCssak ModuSori는 사용자가
+선택해 내려받는 다섯 Whisper 모델로 동작하는 로컬 우선 음성 타이핑·실시간 자막·미디어
+전사·추출식 회의록 프로그램입니다.
 
-**말한 내용을 자신의 Windows PC에서 문자로 바꿉니다.** PCssak ModuSori는 필요한
-Whisper 모델을 선택해 내려받아 사용하는 로컬 우선 받아쓰기·실시간 자막·미디어 전사·
-추출식 회의록 보조 프로그램입니다.
+> **저장소 범위:** 이곳은 공식 설치 파일 배포·업데이트·문서·문제 제보용 공개
+> 저장소입니다. 애플리케이션 소스는 비공개 독점 소프트웨어이며 이 저장소가 공개되어
+> 있다는 이유로 소스 코드가 오픈소스가 되는 것은 아닙니다.
 
-> **저장소 범위:** 이곳은 공식 설치 파일 배포·업데이트·문서·문제 제보용 공개 저장소입니다.
-> PCssak ModuSori 프로그램 소스는 비공개 독점 소프트웨어이며, 공개 저장소라는 이유로
-> 오픈소스가 되는 것은 아닙니다.
+> **공개 승인 기준:** 정확한 태그의 고정 GitHub 릴리스가 보이고, 무결성·서명·출처·법률·
+> 고지·SBOM·릴리스 노트 자산이 모두 있어야 공식 설치본입니다. 릴리스 페이지나 필수
+> 자산이 없으면 승인된 공개 PCssak ModuSori 빌드가 아닙니다.
 
-## 무료 얼리억세스 계획
+## 무료 얼리액세스 0.1.0
 
-- Windows 11 Home/Pro x64를 우선 검증 대상으로 합니다.
-- Tiny, Base, Small, Medium, Large v3 Turbo 모델을 유료 모델 등급 없이 선택할 수 있습니다.
-- 모델은 설치 파일에 포함하지 않고 사용자가 요청할 때만 내려받습니다.
-- 현재 `0.1.x` 평가 제한은 파일당 15분, 현지 날짜 기준 받아쓰기 하루 15회, 실시간
-  자막 세션당 5분, 회의록 요약 하루 3회입니다. 영어 번역은 무료 얼리억세스에서
-  제공하지 않으며 현재 판매 중인 유료 플랜은 없습니다.
-- 모델 설치 뒤 받아쓰기·실시간 자막·파일 전사·추출식 회의록 보조는 장치에서 처리합니다.
-- 계획된 얼리억세스판에는 PCSSAK 계정·광고·사용 분석·추적·자동 오류 보고가 없습니다.
-- 릴리스판은 시작 뒤 이 저장소에 서명된 업데이트가 있는지 한 번 확인합니다. 다운로드와
-  설치에는 사용자 승인이 필요하고, 녹음·자막·파일 변환 중에는 설치를 보류합니다.
+0.1.0은 실제 사용자와 호환성·정확도·편의성 검증을 시작하는 버전입니다. 모든 장치·언어·
+국가의 검증을 이미 마쳤다는 뜻이 아닙니다.
 
-기능 범위·번역 품질·법률 문서·호환성 표시는 아직 검증 중입니다. 시험한 빌드와 설치본·
-검증값·업데이트 메타데이터·고지·안전 문서가 일치한 뒤에만 이곳에 릴리스를 게시합니다.
+- 설정 가능한 전역 단축키와 검증된 Windows 입력 대상을 이용한 음성 타이핑
+- 마이크 또는 Windows 시스템 오디오 중 한 소스의 실시간 자막
+- WAV, MP3, M4A, MP4, FLAC, OGG, OGA, AAC, MKA, MKV 미디어 일괄 전사
+- SRT, WebVTT, Markdown, 일반 텍스트 내보내기
+- 결정·할 일 정리를 돕는 결정론적 추출식 회의록
+- 사용자가 요청할 때만 내려받는 Tiny, Base, Small, Medium, Large-v3 Turbo 모델
+- 시작 후 자동 업데이트 확인 한 번과 사용자가 요청한 수동 확인
+- 중복 실행 방지, 안전 종료 조정, 비정상 종료 초안 암호화 복구
+- 영어·한국어·일본어·독일어·프랑스어·중남미 스페인어·브라질 포르투갈어·튀르키예어·
+  러시아어 UI
 
-## 다운로드 안전
+회의록은 규칙 기반 추출식 기능입니다. **화자분리, 생성형 로컬 LLM, 영어 번역은 포함하지
+않습니다.** 이 버전에는 유료 플랜·결제·유료 라이선스 판매가 없습니다.
 
-첫 승인 빌드가 게시되면 [공식 최신 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/latest)
-또는 PCSSAK 공식 제품 페이지만 사용하십시오.
+### 무료 0.1.x 기능 제한
 
-- 같은 릴리스의 `SHA256SUMS.txt`와 설치 파일 SHA-256을 비교하십시오.
-- 게시된 릴리스 태그와 자산에는 GitHub 변경 불가능 릴리스 설정이 적용됩니다. 승인된
-  설치 파일을 몰래 교체하지 않고 변경이 필요하면 새 버전을 발행합니다.
-- 첫 얼리억세스 설치본은 Windows Authenticode 발행자 서명이 아직 없을 수 있습니다.
-  그 경우 Windows에 **알 수 없는 게시자** 또는 SmartScreen 경고가 표시될 수 있습니다.
-- 설치를 위해 Microsoft Defender나 SmartScreen을 끄지 마십시오.
-- 앱 내부 Tauri 업데이트 서명은 필수이지만 Authenticode 발행자 서명과는 별개입니다.
+| 기능 | 제한 |
+| --- | --- |
+| 사용자·좌석 | 제한 없음 |
+| Whisper 모델 | 등록된 다섯 모델 모두 |
+| 파일 전사 | 파일당 최대 15분 |
+| 음성 타이핑 | 현지 날짜 기준 하루 15회 |
+| 실시간 자막 | 세션당 5분, 새 세션 시작 가능 |
+| 회의록 | 현지 날짜 기준 하루 3회 |
+| 영어 번역 | 제공하지 않음 |
 
-## 개인정보 경계
+## 플랫폼 경계
 
-음성·미디어 내용·전사·자막·회의록 문자는 장치에 머물도록 설계합니다. 네트워크 예외는
-공식 whisper.cpp 모델 저장소의 모델 다운로드와 앱 실행당 한 번의 이 저장소 업데이트
-확인입니다. 이 요청은 IP 주소·시각·요청 파일·전송 정보 같은 일반 네트워크 메타데이터를
-관련 호스팅 제공자에게 노출할 수 있습니다. 정확한 릴리스 동작은 공개 전에 문서화하고
-실제로 검증합니다.
+- 배포 대상: AVX2를 지원하는 Windows x64 CPU
+- 우선 대상: 현재 Microsoft 지원을 받는 Windows 11 Home 또는 Pro x64
+- CPU 전용 빌드이며 공개 CUDA·Vulkan 빌드는 제공하지 않음
+- Microsoft Edge WebView2 Runtime 필요
+- 미지원: Windows x86, Windows on ARM, Windows S 모드, Windows Server, macOS, Linux, Wine
+- Windows 10 22H2는 Microsoft 지원이 끝났으며 미검증 호환성 관찰 대상일 뿐 지원 플랫폼이 아님
 
-## 베타 개선 참여
+깨끗한 Windows·여러 장치·장시간·원어민 언어·보안 제품·업데이터·출시 지역 법률 실기는
+v0.1.0에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트](RELEASE_NOTES_v0.1.0.md),
+[알려진 제한](docs/KNOWN-LIMITATIONS.ko.md), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)을
+읽으십시오.
 
-- 재현 가능한 결함은 [버그 제보 양식](../../issues/new?template=bug-report.yml)을 사용하십시오.
-- 기능 제안은 [기능 요청 양식](../../issues/new?template=feature-request.yml)에 사용자 문제와
-  기대 결과를 먼저 설명하십시오.
-- 로그·화면·전사·미디어 정보를 첨부하기 전에 [지원 안내](SUPPORT.md)를 읽으십시오.
-- 악용 가능한 보안 문제는 [보안 안내](SECURITY.md)에 따라 비공개로 제보하십시오.
+## 다운로드와 무결성 확인
 
-개인 음성·전체 전사·고객 정보·인증정보·라이선스 키·개인 파일 경로·기밀 문서를 공개
-이슈에 올리지 마십시오.
+[공식 고정 v0.1.0 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.0)
+또는 PCSSAK 공식 다운로드 페이지만 사용하십시오.
 
-PCssak ModuSori 실행 파일에는 승인된 전용 EULA가 적용될 예정입니다. 제3자 오픈소스
-구성요소와 Whisper 모델 가중치에는 각 라이선스와 고지가 계속 적용됩니다. PCSSAK은
-OpenAI·Hugging Face·GitHub와 제휴하거나 이들의 보증을 받은 회사가 아닙니다.
+1. 릴리스 태그가 정확히 `v0.1.0`인지 확인하고 소스 압축 파일·미러·재패키지·포터블·MSI·
+   x86·ARM 빌드를 사용하지 마십시오.
+2. 같은 릴리스의 `RELEASE-NOTES.md`와 `BUILD-PROVENANCE.json`을 읽으십시오.
+3. 설치 파일의 SHA-256을 계산해 같은 고정 릴리스의 `SHA256SUMS.txt` 설치본 항목과
+   비교하십시오.
+4. Microsoft Defender·SmartScreen·Smart App Control·조직 정책을 켜 두십시오.
+5. 파일명·해시·버전·소스 커밋·필수 릴리스 자산이 하나라도 다르면 중단하십시오.
+
+아직 생성하지 않은 설치본 해시나 크기를 저장소 문서에 미리 적지 않습니다. 정확한 값은
+최종 릴리스 바이트에서 만든 뒤 고정 릴리스 자산에만 공개합니다.
+
+> [!WARNING]
+> v0.1.0 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
+> 게시자**, **Windows의 PC 보호**를 표시하거나 Smart App Control·조직 정책이 실행을 막을
+> 수 있습니다. 필수 Tauri 업데이트 `.sig`는 앱 내부 업데이트 파일을 보호하지만
+> Authenticode 게시자 신원은 아닙니다. 설치를 위해 Windows 보안 기능을 끄지 마십시오.
+
+## 개인정보와 네트워크
+
+음성 인식·음성 타이핑·자막·파일 전사·추출식 회의록은 사용자 장치에서 동작합니다. 앱에는
+PCSSAK 계정·광고·텔레메트리·사용 분석·추적 SDK·자동 오류 업로드가 없고 음성·전사를
+PCSSAK 처리 서버로 보내지 않습니다.
+
+사용자가 고정 `ggerganov/whisper.cpp` Hugging Face 저장소에서 모델을 요청할 때, 공개
+GitHub 릴리스 업데이트 확인·사용자 승인 업데이트 다운로드, Windows의 WebView2 설치,
+사용자가 외부 링크를 열 때만 네트워크를 사용할 수 있습니다. 해당 제공자는 IP 주소·시각·
+사용자 에이전트·요청 자산 같은 일반 HTTPS 메타데이터를 처리할 수 있습니다. 자세한 내용은
+[개인정보 처리방침](PRIVACY.md)을 확인하십시오.
+
+비정상 종료 복구는 원본 경로·파일명 없이 제한된 편집 문자와 시간 정보만 저장하고 현재
+Windows 사용자 DPAPI로 파일을 암호화하며 만료·손상 자료를 거부합니다. 관리자나 같은
+Windows 사용자 권한으로 실행되는 악성코드까지 막는 경계는 아닙니다.
+
+## ModuSori 개선 참여
+
+- 직접 재현한 결함은 [버그 제보 양식](../../issues/new?template=bug-report.yml)을 사용하십시오.
+- 반복되는 사용자 문제와 기대 결과는 [기능 요청 양식](../../issues/new?template=feature-request.yml)에 적으십시오.
+- 화면이나 기술 정보를 공유하기 전에 [지원 안내](SUPPORT.md)를 읽으십시오.
+- 악용 가능한 보안 문제는 [보안 정책](SECURITY.md)에 따라 비공개로 제보하십시오.
+
+원본 음성·개인 전사·고객 자료·인증정보·개인 경로·라이선스 키·기밀 업무를 공개 이슈에
+올리지 마십시오. AI 도움으로 작성한 제보도 제출자가 직접 재현하고 확인해야 합니다.
+
+## 문서
+
+- [영문 소개](README.md)
+- [릴리스 노트](RELEASE_NOTES_v0.1.0.md)
+- [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)
+- [설치와 업데이트](docs/INSTALLATION.ko.md)
+- [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)
+- [품질과 안전](docs/QUALITY-AND-SAFETY.ko.md)
+- [EULA](EULA.md)와 [개인정보 처리방침](PRIVACY.md)
+- [제3자 고지](THIRD-PARTY-NOTICES.md)와 [원본 소스 안내](docs/THIRD-PARTY-SOURCE.md)
+- [지원](SUPPORT.md), [보안](SECURITY.md), [이슈 작성 기준](CONTRIBUTING.md)
+
+PCssak ModuSori 실행 파일은 판매가 아니라 동봉 EULA에 따른 사용권으로 제공됩니다.
+`PCSSAK`은 게시자·소프트웨어 브랜드 표시명이며 이 표현만으로 특정 등록 법인 형태를
+주장하지 않습니다. 제3자 구성요소는 각자의 라이선스를 따릅니다. PCSSAK은 OpenAI,
+Hugging Face, GitHub, Microsoft 또는 상위 프로젝트와 제휴하거나 보증받지 않았습니다.

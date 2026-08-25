@@ -1,0 +1,121 @@
+# Quality and Safety — PCssak ModuSori
+
+[한국어](QUALITY-AND-SAFETY.ko.md) · [Known limitations](KNOWN-LIMITATIONS.md) · [Security](../SECURITY.md)
+
+This document explains the engineering boundaries and evidence expected for the v0.1.0 Free Early
+Access release. It is not a certificate that the app is error-free, accurate for every language,
+legally suitable in every jurisdiction, or approved by a security product.
+
+## Local, user-controlled workflow
+
+1. The user chooses a microphone, Windows system-audio source, or supported media file.
+2. The app requires the applicable legal and recording-safety confirmations.
+3. A locally installed, hash-verified Whisper model produces text on the PC.
+4. The user reviews the transcript, captions, or extractive meeting notes.
+5. Only an explicit save or copy action sends results to a user-chosen destination.
+
+The app has no PCSSAK account, telemetry, advertising, usage analytics, tracking SDK, or automatic
+crash upload. User audio and text are not sent to a PCSSAK processing server. Model, update,
+WebView2, user-opened link, email, and GitHub traffic remains subject to each external provider's
+network metadata processing. Public reports are not local or private.
+
+## Recording and consent safety
+
+- First use requires active acceptance of the complete EULA and Privacy Notice. A changed document
+  version or hash requires renewed acceptance.
+- The first recording use presents a longer safety notice; every capture session also requires a
+  short confirmation.
+- The UI and caption overlay identify active capture and provide a stop path.
+- Microphone and system-audio recording can capture other people, notifications, copyrighted
+  content, confidential discussion, or regulated information. The user must obtain every required
+  permission and stop when consent is withdrawn.
+- These controls remind and inform. They do not verify identity, age, authority, participant
+  consent, workplace policy, or legal compliance.
+
+## Dictation target safety
+
+Global-hotkey dictation stores only an opaque backend target token. Before automatic input it
+rechecks the target window and process, focus, password-field status, integrity level, input
+desktop, and modifier-key state. If the verified target is unavailable or changed, it refuses
+automatic input and returns control to ModuSori. This reduces accidental disclosure but cannot
+make every third-party application or IME compatible.
+
+## Result and exit safety
+
+- Transcription and extractive notes can be wrong. Important results require comparison with the
+  original audio and human review.
+- Supported export formats are rendered by the backend and saved through a native dialog with a
+  fixed extension and atomic replacement boundary.
+- Recording, transcription, model changes, exports, summary work, and update installation share
+  backend work gates to reduce races.
+- Unsaved frontend results and unacknowledged backend output participate in close and update
+  protection. Discarding results requires an explicit choice.
+- Single-instance handling returns a second launch to the existing app instead of starting a
+  second audio engine.
+
+These controls reduce common loss and concurrency risks; they do not replace a separate backup.
+
+## Unexpected-exit recovery
+
+Recovery stores bounded edit text and timing without source audio, source paths, or filenames.
+The complete file is protected with current-user Windows DPAPI, revision-checked, limited to
+policy bounds, and expired after at most seven days. Corrupt, expired, unknown, or oversized data
+is rejected as a whole. Normal exit and explicit discard remove the draft.
+
+Recovery is not a complete project save and DPAPI is not protection against an administrator,
+same-user malware, unlocked-device access, memory inspection, backups, or synchronisation tools.
+
+## Model and update supply chain
+
+- Models are optional and are downloaded only after user action from the fixed
+  `ggerganov/whisper.cpp` Hugging Face source.
+- Each model has a fixed filename, exact size, and pinned SHA-256. Partial downloads resume, but a
+  final mismatch is rejected instead of installed.
+- Update discovery uses this public release repository. Installation requires user approval and
+  is blocked while protected work or unsaved output exists.
+- The app verifies a Tauri installer signature, a separately signed release manifest, version,
+  canonical URL, release-note digest, and installer SHA-256. Replay of an older or substituted
+  candidate is rejected.
+- A fixed release publishes hashes, source/build/signing provenance, legal documents, exact
+  third-party notices, and an SPDX SBOM. Publication permits only the release process's exact
+  asset allowlist.
+
+The Tauri signature is not Windows Authenticode publisher identity. The v0.1.0 installer remains
+unsigned to Windows and can be warned about or blocked.
+
+## Automated validation layer
+
+Before publication, the exact candidate is required to record successful results for:
+
+- frontend contract tests and rendered DOM, keyboard, focus, and accessibility interaction tests;
+- TypeScript checking and production Vite build;
+- Rust unit and integration tests, formatting, Clippy with warnings denied, and release build;
+- single-instance, close, update, model, consent, recovery, quota, export, and concurrency contracts;
+- nine-UI-language key, message-argument, locale-number, and error-catalogue consistency;
+- dependency advisory, licence, source-policy, npm audit, secret-hygiene, and workflow static checks;
+- legal Early Access gate and bundled-document equality;
+- NSIS architecture/configuration, updater-signature, signed-manifest, SBOM, exact-asset, and
+  SHA-256 verification.
+
+The fixed release assets, release notes, and build provenance are the evidence for the published
+candidate. A source-level pass does not prove a clean Windows installation, driver compatibility,
+speech accuracy, long-duration behavior, native translation quality, security-product reputation,
+or legal suitability.
+
+## Human and real-device validation layer
+
+For v0.1.0, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
+long-duration and nine-language owned benchmarks, nine-language native-speaker review, accessibility
+and DPI/IME checks, security-product behavior, separate-machine updater testing, and launch-region
+legal review are all `NOT_RUN`. The exact matrix is in [Known limitations](KNOWN-LIMITATIONS.md)
+and the [release notes](../RELEASE_NOTES_v0.1.0.md).
+
+Free Early Access deliberately collects real-user evidence after publication. A user report is
+not automatically a pass or benchmark result; reproduction method, non-sensitive sample, device
+context, expected output, and actual output are needed.
+
+## Safe feedback
+
+Use the public issue forms only for non-sensitive reproducible information. Never attach original
+audio, private transcripts, customer data, credentials, personal paths, or company secrets. Report
+exploitable vulnerabilities through [private security reporting](../SECURITY.md).
