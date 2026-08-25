@@ -1,0 +1,60 @@
+name: Bug report
+description: Report one reproducible PCssak ModuSori defect without private content.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach real audio, full transcripts, customer data, credentials, licence keys, or confidential files.
+        Security vulnerabilities must use private vulnerability reporting.
+  - type: input
+    id: version
+    attributes:
+      label: PCssak ModuSori version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows and hardware
+      placeholder: "Windows 11 Pro 24H2 x64, CPU, RAM"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Selected model and input type
+      placeholder: "Base, microphone / MP3 / system audio"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use a synthetic sample and number each exact action.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed private and confidential content.
+          required: true
+        - label: I personally reproduced and checked this report.
+          required: true
+

@@ -1,0 +1,40 @@
+name: Feature request
+description: Describe one user problem and the outcome that would solve it.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Explain the workflow or obstacle before proposing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Dictation
+        - Live subtitles
+        - File transcription
+        - Meeting notes
+        - Models and performance
+        - Accessibility and UI
+        - Updates and installation
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I checked existing issues and did not include private content.
+          required: true
