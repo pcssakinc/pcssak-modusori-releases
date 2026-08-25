@@ -1,0 +1,129 @@
+# Known Limitations — PCssak ModuSori v0.1.0
+
+[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.0.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
+
+This document describes the Free Early Access boundary. It prevents an untested or absent feature
+from being mistaken for a supported promise.
+
+## Platform and installer
+
+- Only a Windows x64 CPU build is provided. AVX2 is mandatory.
+- The primary target is a currently serviced Windows 11 Home or Pro x64 installation, but the
+  clean-install matrix remains `NOT_RUN`.
+- Windows x86, Windows on ARM, Windows S mode, Windows Server, macOS, Linux, and Wine are not
+  supported and no installer is provided for them.
+- Windows 10 22H2 is out of Microsoft support. Compatibility observation is `NOT_RUN`; it is not
+  a supported platform.
+- CUDA and Vulkan are not included. Large models can be slow on CPU-only hardware.
+- The installer and app are not Windows Authenticode-signed. SmartScreen, Smart App Control,
+  Defender, another security product, or organisation policy can warn or block execution.
+- Current-user install, repair, update, uninstall, and WebView2 behavior has not completed a clean
+  Home/Pro device matrix.
+
+## Speech recognition and models
+
+- Whisper output can omit, substitute, duplicate, or mis-segment words, names, numbers, accents,
+  and punctuation. It is not a certified record or professional advice.
+- Tiny, Base, Small, Medium, and Large-v3 Turbo are all selectable without payment, but no model is
+  guaranteed to be accurate or fast for a particular language, speaker, microphone, noise level,
+  or CPU.
+- Long-duration 10/60/120-minute stability and owned nine-language WER/CER, latency, real-time
+  factor, and memory benchmarks are `NOT_RUN` for v0.1.0.
+- Models are not bundled. First use needs a Hugging Face download, storage, and successful pinned
+  size and SHA-256 verification.
+- The release is CPU-only. Model memory guidance is not a validated total-system RAM minimum.
+
+## Features not included
+
+- **No speaker diarization.** Transcript segments do not identify who spoke. A stereo or two-channel
+  signal is not converted into reliable multi-speaker labels.
+- **No local or remote generative LLM.** Meeting notes are deterministic and extractive. They can
+  miss context or choose unhelpful lines and still require human review.
+- **No English translation.** The Free Early Access UI blocks translation even when an underlying
+  model can technically perform an X-to-English Whisper task.
+- No cloud account, team administration, collaboration workspace, cloud sync, online transcription,
+  paid plan, payment, or paid licence is offered.
+
+## Dictation
+
+- Free Early Access allows 15 dictation uses per local calendar day.
+- Automatic text input is limited to a verified Windows target. Password fields, an invalid or
+  changed target, mismatched integrity level, residual modifier keys, or inaccessible focus are
+  refused rather than guessed.
+- Elevated applications, browsers, Office applications, Korean and Japanese IME, multiple
+  monitors, minimised windows, and rapid start/stop combinations remain `NOT_RUN` on a real matrix.
+- Voice commands do not create a general-purpose remote-control or automation interface.
+
+## Live captions and audio devices
+
+- One session uses either microphone or Windows system audio, not both.
+- Free Early Access stops a caption session after five minutes; the user may start another session.
+- Loopback capture depends on a compatible active Windows output endpoint. Protected streams,
+  exclusive-mode devices, Bluetooth profiles, docks, virtual devices, sleep/resume, and hot-plug
+  behavior can differ.
+- Caption history is bounded. Important text should be reviewed and exported; it is not a permanent
+  legal transcript.
+- Recording and system-audio law, participant consent, workplace policy, and content rights remain
+  the user's responsibility.
+
+## File transcription and export
+
+- Free Early Access accepts at most 15 minutes per file.
+- Supported extensions are WAV, MP3, M4A, MP4, FLAC, OGG, OGA, AAC, MKA, and MKV. A recognised
+  extension does not guarantee support for every codec, damaged container, encrypted stream, or
+  unusual metadata layout.
+- SRT, WebVTT, Markdown, and TXT export is available. There is no subtitle timeline editor, video
+  burn-in, FFmpeg integration, or speaker track.
+- Save cancellation, permissions, full disks, file locks, path policy, and external modification
+  can prevent export. Review the final file in its destination application.
+
+## Meeting notes
+
+- Free Early Access allows three summaries per local calendar day.
+- Notes select and organise source lines using deterministic rules. They are not generative and do
+  not understand every decision, owner, deadline, negation, joke, or domain term.
+- The source transcript must be checked against the audio first. A transcription error can be
+  preserved or emphasised in the notes.
+- No speaker attribution, cloud model, Ollama, llama.cpp, or other local LLM is included.
+
+## Recovery, privacy, and data
+
+- Unexpected-exit recovery contains bounded text and timing, not source audio, source paths, or
+  filenames. It is not a complete project backup.
+- Recovery uses current-user Windows DPAPI, expires after at most seven days, and rejects the whole
+  file if it is corrupt, expired, unknown, or outside policy. Normal exit or user discard removes
+  the draft.
+- DPAPI does not protect against an administrator, malware running as the same Windows user,
+  unlocked-device access, memory inspection, backup software, or cloud synchronisation.
+- The app has no telemetry or automatic crash upload. Model, update, WebView2, external-link,
+  email, and public GitHub requests can expose ordinary network metadata to those providers.
+- Public issue attachments are not local or private. Never upload real audio, transcripts, paths,
+  credentials, customer data, or company secrets.
+
+## Updates
+
+- Startup makes one automatic check attempt; manual checks are separate attempts. Network or GitHub
+  failure must not be interpreted as proof that no update exists.
+- The user approves download and installation. Active work or unsaved results can block it.
+- Tauri updater signatures protect update bytes but are not Authenticode publisher identity.
+- Separate installed-machine success, restart race, rollback, replay, and tampered-update tests are
+  `NOT_RUN` for v0.1.0.
+
+## Verification disclosure
+
+The following real-device work is not represented as passed:
+
+| Validation | v0.1.0 status |
+| --- | --- |
+| Clean Windows 11 Home x64 install, launch, core work, uninstall | NOT_RUN |
+| Clean Windows 11 Pro x64 install, launch, core work, uninstall | NOT_RUN |
+| Windows 10 22H2 compatibility observation | NOT_RUN; Windows 10 is out of Microsoft support |
+| Intel and AMD device matrix, microphones, loopback, sleep, device removal | NOT_RUN |
+| Multi-monitor, DPI, IME, tray, duplicate launch, update-restart races | NOT_RUN |
+| Long-duration and nine-language owned benchmark audio | NOT_RUN |
+| Nine-language native-speaker review of every screen and error | NOT_RUN |
+| Defender, SmartScreen, Smart App Control, and third-party security-product behavior | NOT_RUN |
+| Normal and tampered in-app update on a separate installed machine | NOT_RUN |
+| Launch-jurisdiction legal counsel and localized legal translation review | NOT_RUN |
+
+See [Quality and safety](QUALITY-AND-SAFETY.md) for the automated and human validation layers.
