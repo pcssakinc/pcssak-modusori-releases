@@ -4,6 +4,14 @@ PCssak ModuSori turns speech into text locally on a Windows PC. This first publi
 release is intended to begin real-user compatibility, quality, and usability validation. It is
 not a claim that every device, language, or legal jurisdiction has already been validated.
 
+> **Published-record roles:** This main-branch clarification does not alter the immutable v0.1.0
+> tag or Release assets. The [file at the fixed tag](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.0/RELEASE_NOTES_v0.1.0.md)
+> is the version-controlled base note. The fixed Release asset
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/RELEASE-NOTES.md)
+> is the distribution copy with final-build and security-verification details. Updater manifests
+> embed their own `notes`; `UPDATE-RELEASE.json`'s `notes_sha256` hashes exactly that UTF-8 inline
+> value, while the Markdown asset's file digest is listed separately in `SHA256SUMS.txt`.
+
 ## Included in v0.1.0
 
 - Dictation into a verified Windows target using a configurable global hotkey
@@ -105,6 +113,14 @@ reporting route for exploitable vulnerabilities.
 이번 버전은 Windows PC에서 음성을 로컬로 문자화하는 첫 공개 얼리액세스입니다. 실제
 사용자의 호환성·정확도·편의성 검증을 시작하기 위한 버전이며 모든 장치·언어·국가의
 검증이 이미 끝났다는 뜻이 아닙니다.
+
+> **공개 기록의 역할:** 이 main 브랜치 설명은 고정된 v0.1.0 태그·릴리스 자산을 바꾸지
+> 않습니다. [고정 태그의 파일](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.0/RELEASE_NOTES_v0.1.0.md)은
+> 형상관리 기본 노트이고, 고정 릴리스 자산
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/RELEASE-NOTES.md)는
+> 최종 빌드·보안 확인 정보를 덧붙인 배포용 사본입니다. 업데이트 매니페스트는 자체 인라인
+> `notes`를 담으며, `UPDATE-RELEASE.json`의 `notes_sha256`은 그 UTF-8 값 자체를 해시합니다.
+> Markdown 자산 파일 해시는 `SHA256SUMS.txt`가 별도로 정합니다.
 
 음성 타이핑, 마이크 또는 시스템 오디오 실시간 자막, 파일 일괄 전사와 네 가지 형식
 내보내기, 추출식 회의록, 다섯 Whisper 모델, 실행 후 한 번의 사용자 승인 업데이트,

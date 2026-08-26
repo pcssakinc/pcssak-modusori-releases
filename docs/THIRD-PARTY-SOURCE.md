@@ -22,19 +22,30 @@ The public v0.1.0 build does not enable the Cargo CUDA or Vulkan features.
 ## MPL-2.0 source code form
 
 The Windows graph contains unmodified MPL-2.0 crates. The generated notice lists the exact package
-versions and the full MPL-2.0 text. Source Code Form can be obtained by the exact package name and
-version from [crates.io](https://crates.io/) or its listed upstream repository.
+versions and the full MPL-2.0 text. Source Code Form can be obtained from the exact-version
+crates.io records and archives below or from the listed upstream repository.
 
 The v0.1.0 graph includes these groups:
 
 - Symphonia 0.5.5 and its selected codec, format, metadata, and utility crates —
-  [upstream](https://github.com/pdeljanov/Symphonia) and
+  [upstream](https://github.com/pdeljanov/Symphonia),
+  [exact core package record](https://crates.io/api/v1/crates/symphonia/0.5.5), and
   [exact core crate archive](https://crates.io/api/v1/crates/symphonia/0.5.5/download)
 - `cssparser 0.36.0` and `cssparser-macros 0.6.1` —
-  [upstream](https://github.com/servo/rust-cssparser)
-- `dtoa-short 0.3.5` — [upstream](https://github.com/upsuper/dtoa-short)
-- `option-ext 0.2.0` — [upstream](https://github.com/soc/option-ext)
-- `selectors 0.36.1` — [upstream](https://github.com/servo/stylo)
+  [upstream](https://github.com/servo/rust-cssparser),
+  [`cssparser` record](https://crates.io/api/v1/crates/cssparser/0.36.0) and
+  [archive](https://crates.io/api/v1/crates/cssparser/0.36.0/download), and
+  [`cssparser-macros` record](https://crates.io/api/v1/crates/cssparser-macros/0.6.1) and
+  [archive](https://crates.io/api/v1/crates/cssparser-macros/0.6.1/download)
+- `dtoa-short 0.3.5` — [upstream](https://github.com/upsuper/dtoa-short),
+  [exact package record](https://crates.io/api/v1/crates/dtoa-short/0.3.5), and
+  [exact archive](https://crates.io/api/v1/crates/dtoa-short/0.3.5/download)
+- `option-ext 0.2.0` — [upstream](https://github.com/soc/option-ext),
+  [exact package record](https://crates.io/api/v1/crates/option-ext/0.2.0), and
+  [exact archive](https://crates.io/api/v1/crates/option-ext/0.2.0/download)
+- `selectors 0.36.1` — [upstream](https://github.com/servo/stylo),
+  [exact package record](https://crates.io/api/v1/crates/selectors/0.36.1), and
+  [exact archive](https://crates.io/api/v1/crates/selectors/0.36.1/download)
 
 For an exact archive, use `https://crates.io/api/v1/crates/<package>/<version>/download` with the
 name and version in the generated notice. PCSSAK does not modify these crate source files in
@@ -80,8 +91,8 @@ Windows 실행 파일에 컴파일되는 whisper.cpp/ggml 원본을 포함합니
 ## MPL-2.0 원본 소스 형식
 
 Windows 그래프에는 수정하지 않은 MPL-2.0 크레이트가 있습니다. 생성 고지는 정확한 버전과
-MPL-2.0 전문을 포함합니다. 정확한 패키지 이름·버전으로 crates.io 또는 고지에 표시된 상위
-저장소에서 Source Code Form을 받을 수 있습니다.
+MPL-2.0 전문을 포함합니다. 위의 버전 고정 crates.io 패키지 기록·원본 압축 링크 또는 고지에
+표시된 상위 저장소에서 Source Code Form을 받을 수 있습니다.
 
 v0.1.0에는 Symphonia 0.5.5 계열, `cssparser 0.36.0`, `cssparser-macros 0.6.1`,
 `dtoa-short 0.3.5`, `option-ext 0.2.0`, `selectors 0.36.1`이 포함됩니다. 정확한 압축 파일은

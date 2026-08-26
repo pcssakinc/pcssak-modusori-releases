@@ -75,6 +75,17 @@ v0.1.0에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트
 아직 생성하지 않은 설치본 해시나 크기를 저장소 문서에 미리 적지 않습니다. 정확한 값은
 최종 릴리스 바이트에서 만든 뒤 고정 릴리스 자산에만 공개합니다.
 
+> **v0.1.0 릴리스 노트 기록의 역할:**
+> [고정 태그의 `RELEASE_NOTES_v0.1.0.md`](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.0/RELEASE_NOTES_v0.1.0.md)는
+> 형상관리 기본 노트입니다. 고정 릴리스 자산
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/RELEASE-NOTES.md)는
+> 최종 빌드·보안 확인 정보를 덧붙인 배포용 사본이며 파일 해시는
+> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/SHA256SUMS.txt)가
+> 기준입니다. [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/latest.json)과
+> [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/UPDATE-RELEASE.json)은
+> 업데이터용 `notes`를 내부에 담습니다. `UPDATE-RELEASE.json`의 `notes_sha256`은 두 Markdown
+> 파일이 아니라 UTF-8 인라인 `notes` 값 자체의 해시입니다.
+
 > [!WARNING]
 > v0.1.0 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
 > 게시자**, **Windows의 PC 보호**를 표시하거나 Smart App Control·조직 정책이 실행을 막을
