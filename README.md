@@ -78,6 +78,17 @@ or the official PCSSAK download page.
 No installer digest or size is hard-coded in these repository documents. The exact values are
 created from the final release bytes and published only in the fixed release assets.
 
+> **v0.1.0 release-note records:**
+> [`RELEASE_NOTES_v0.1.0.md` at the immutable tag](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.0/RELEASE_NOTES_v0.1.0.md)
+> is the version-controlled base note. The fixed Release asset
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/RELEASE-NOTES.md)
+> is the distribution copy and adds final-build and security-verification details; its file digest
+> is listed in [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/SHA256SUMS.txt).
+> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/latest.json)
+> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/UPDATE-RELEASE.json)
+> embed updater-facing `notes`. `UPDATE-RELEASE.json`'s `notes_sha256` hashes exactly that UTF-8
+> `notes` value, not either Markdown file.
+
 > [!WARNING]
 > The v0.1.0 installer and application are not Windows Authenticode-signed. Windows may show
 > **Unknown publisher**, **Windows protected your PC**, or block execution under Smart App
