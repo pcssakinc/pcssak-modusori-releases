@@ -12,7 +12,7 @@ body:
     id: version
     attributes:
       label: PCssak ModuSori version
-      placeholder: "0.1.0"
+      placeholder: "0.1.1"
     validations:
       required: true
   - type: input
@@ -57,4 +57,3 @@ body:
           required: true
         - label: I personally reproduced and checked this report.
           required: true
-

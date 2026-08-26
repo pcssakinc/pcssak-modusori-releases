@@ -1,6 +1,6 @@
 # PCssak ModuSori — 공식 Windows 다운로드
 
-[English](README.md) · [제품 홈페이지](https://pcssak.co.kr/modusori) · [설치 안내](docs/INSTALLATION.ko.md) · [v0.1.0 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.0)
+[English](README.md) · [제품 홈페이지](https://pcssak.co.kr/modusori) · [설치 안내](docs/INSTALLATION.ko.md) · [v0.1.1 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.1)
 
 **말한 내용을 자신의 Windows PC에서 문자로 바꿉니다.** PCssak ModuSori는 사용자가
 선택해 내려받는 다섯 Whisper 모델로 동작하는 로컬 우선 음성 타이핑·실시간 자막·미디어
@@ -14,10 +14,30 @@
 > 고지·SBOM·릴리스 노트 자산이 모두 있어야 공식 설치본입니다. 릴리스 페이지나 필수
 > 자산이 없으면 승인된 공개 PCssak ModuSori 빌드가 아닙니다.
 
-## 무료 얼리액세스 0.1.0
+## 무료 얼리액세스 0.1.1
 
-0.1.0은 실제 사용자와 호환성·정확도·편의성 검증을 시작하는 버전입니다. 모든 장치·언어·
-국가의 검증을 이미 마쳤다는 뜻이 아닙니다.
+0.1.1은 첫 설치본 받아쓰기 시험에서 확인한 변환 지연·상태 혼동·취소·종료 문제를 우선
+개선한 긴급 사용성 업데이트입니다. 모든 장치·언어·국가의 검증을 이미 마쳤다는 뜻은
+아닙니다.
+
+### 0.1.1 핵심 변경 네 가지
+
+- 다음 실행에도 유지되는 **100%·110%·125%·150% 화면 배율**
+- 가짜 예상 시간 없이 녹음 길이·처리 경과·실측 인식 대기량을 분리 표시
+- 파일 일괄 전사의 정확도 중심 경로는 유지하면서 CPU 실시간 받아쓰기 마무리 속도 개선
+- 중복 중지 방지와 이미 인식된 텍스트를 유지하는 남은 변환 취소 기능
+
+한 개발 PC의 결정론적 30분 실제시간 페이싱 live-final 시험은 기능 완료·큐 배출·결과
+일관성·추론 처리량 자동 게이트만 통과했습니다. 146/146 청크를 실패 없이 완료했고 순수 추론은
+2.569096배 실시간(표준 RTF 0.389242)이었습니다. 메모리에는 자동 합격 임계값이 없으며 첫 전체
+청크부터 종료까지 working set/private가 19,968,000/18,616,320바이트 증가한 수동 관찰값만
+있습니다. 단일 실행은 장시간 누수를 입증하지도 배제하지도 않습니다. 제품과 같은 36칸 큐
+구성을 사용했지만 최대 관찰 깊이가 1이므로 포화·역압은 검증하지 않았습니다. 이 시험은 실제
+마이크·리샘플링·VAD·앱 세션 이벤트·UI·중지·취소를 30분 동안 실행한 것이 아닙니다. 그 실제
+장치 종단 실기는 `NOT_RUN`이며
+자세한 경계는 [릴리스 노트](RELEASE_NOTES_v0.1.1.md)에 공개합니다.
+
+### 포함 기능
 
 - 설정 가능한 전역 단축키와 검증된 Windows 입력 대상을 이용한 음성 타이핑
 - 마이크 또는 Windows 시스템 오디오 중 한 소스의 실시간 자막
@@ -54,17 +74,17 @@
 - 미지원: Windows x86, Windows on ARM, Windows S 모드, Windows Server, macOS, Linux, Wine
 - Windows 10 22H2는 Microsoft 지원이 끝났으며 미검증 호환성 관찰 대상일 뿐 지원 플랫폼이 아님
 
-깨끗한 Windows·여러 장치·장시간·원어민 언어·보안 제품·업데이터·출시 지역 법률 실기는
-v0.1.0에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트](RELEASE_NOTES_v0.1.0.md),
+깨끗한 Windows·실제 마이크 장시간·여러 장치·원어민 언어·보안 제품·업데이터·출시 지역
+법률 실기는 v0.1.1에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트](RELEASE_NOTES_v0.1.1.md),
 [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)을
 읽으십시오.
 
 ## 다운로드와 무결성 확인
 
-[공식 고정 v0.1.0 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.0)
+[공식 고정 v0.1.1 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.1)
 또는 PCSSAK 공식 다운로드 페이지만 사용하십시오.
 
-1. 릴리스 태그가 정확히 `v0.1.0`인지 확인하고 소스 압축 파일·미러·재패키지·포터블·MSI·
+1. 릴리스 태그가 정확히 `v0.1.1`인지 확인하고 소스 압축 파일·미러·재패키지·포터블·MSI·
    x86·ARM 빌드를 사용하지 마십시오.
 2. 같은 릴리스의 `RELEASE-NOTES.md`와 `BUILD-PROVENANCE.json`을 읽으십시오.
 3. 설치 파일의 SHA-256을 계산해 같은 고정 릴리스의 `SHA256SUMS.txt` 설치본 항목과
@@ -75,19 +95,19 @@ v0.1.0에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트
 아직 생성하지 않은 설치본 해시나 크기를 저장소 문서에 미리 적지 않습니다. 정확한 값은
 최종 릴리스 바이트에서 만든 뒤 고정 릴리스 자산에만 공개합니다.
 
-> **v0.1.0 릴리스 노트 기록의 역할:**
-> [고정 태그의 `RELEASE_NOTES_v0.1.0.md`](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.0/RELEASE_NOTES_v0.1.0.md)는
+> **v0.1.1 릴리스 노트 기록의 역할:**
+> [고정 태그의 `RELEASE_NOTES_v0.1.1.md`](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.1/RELEASE_NOTES_v0.1.1.md)는
 > 형상관리 기본 노트입니다. 고정 릴리스 자산
-> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/RELEASE-NOTES.md)는
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/RELEASE-NOTES.md)는
 > 최종 빌드·보안 확인 정보를 덧붙인 배포용 사본이며 파일 해시는
-> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/SHA256SUMS.txt)가
-> 기준입니다. [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/latest.json)과
-> [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.0/UPDATE-RELEASE.json)은
+> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/SHA256SUMS.txt)가
+> 기준입니다. [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/latest.json)과
+> [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/UPDATE-RELEASE.json)은
 > 업데이터용 `notes`를 내부에 담습니다. `UPDATE-RELEASE.json`의 `notes_sha256`은 두 Markdown
 > 파일이 아니라 UTF-8 인라인 `notes` 값 자체의 해시입니다.
 
 > [!WARNING]
-> v0.1.0 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
+> v0.1.1 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
 > 게시자**, **Windows의 PC 보호**를 표시하거나 Smart App Control·조직 정책이 실행을 막을
 > 수 있습니다. 필수 Tauri 업데이트 `.sig`는 앱 내부 업데이트 파일을 보호하지만
 > Authenticode 게시자 신원은 아닙니다. 설치를 위해 Windows 보안 기능을 끄지 마십시오.
@@ -121,7 +141,7 @@ Windows 사용자 권한으로 실행되는 악성코드까지 막는 경계는 
 ## 문서
 
 - [영문 소개](README.md)
-- [릴리스 노트](RELEASE_NOTES_v0.1.0.md)
+- [릴리스 노트](RELEASE_NOTES_v0.1.1.md)
 - [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)
 - [설치와 업데이트](docs/INSTALLATION.ko.md)
 - [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)

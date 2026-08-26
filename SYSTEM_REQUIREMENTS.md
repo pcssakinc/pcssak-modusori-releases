@@ -2,13 +2,13 @@
 
 [한국어](SYSTEM_REQUIREMENTS.ko.md) · [Installation](docs/INSTALLATION.md) · [Known limitations](docs/KNOWN-LIMITATIONS.md)
 
-These are the v0.1.0 Free Early Access release boundaries, not a guarantee that every machine
+These are the v0.1.1 Free Early Access release boundaries, not a guarantee that every machine
 meeting them has been validated. Clean Windows and hardware-matrix testing is `NOT_RUN` for this
 release.
 
 ## Required platform
 
-| Area | v0.1.0 requirement or boundary |
+| Area | v0.1.1 requirement or boundary |
 | --- | --- |
 | Operating system | Currently serviced Windows 11 Home or Pro, x64, with current security updates is the primary target |
 | CPU architecture | x86-64 (`x64`) only |
@@ -37,8 +37,18 @@ whole-PC memory configuration.
 | Large-v3 Turbo | about 1.51 GiB | 6 GB |
 
 Close memory-intensive applications and start with a smaller model on a constrained PC. Speed,
-latency, and memory use vary by CPU, model, media length, and other system load; the real-device
-performance matrix is `NOT_RUN` for v0.1.0.
+latency, and memory use vary by CPU, model, media length, and other system load.
+
+On one development PC, only the automatic functional-completion, queue-drain, result-consistency,
+and inference-throughput gate passed in the deterministic 30-minute Small CPU live-final test:
+146/146 chunks completed without processing failures, with 2.569096× realtime inference and
+standard RTF 0.389242. Memory had no automatic pass threshold. Working set/private memory increased
+by 19,968,000/18,616,320 bytes from the first full chunk to the end, but these are manual
+observations; one run neither proves nor disproves a long-duration leak. The 36-slot product queue
+configuration was used, but maximum observed depth was one, so saturation and backpressure were
+not exercised. This test did not exercise an actual microphone, resampling, VAD, application
+session events, UI, stop, or cancellation for 30 minutes. That end-to-end test and the wider real-device performance
+matrix remain `NOT_RUN` for v0.1.1.
 
 ## Storage
 
@@ -81,6 +91,8 @@ to work around a failure.
 The UI includes English, Korean, Japanese, German, French, Latin American Spanish, Brazilian
 Portuguese, Turkish, and Russian. Whisper is multilingual, but accuracy is not guaranteed by the
 presence of a language choice. Nine-language native-speaker review, Narrator, high contrast,
-multi-monitor, IME, and 125–200% DPI real-device testing are `NOT_RUN` for v0.1.0.
+multi-monitor, IME, and 125–200% DPI real-device testing are `NOT_RUN` for v0.1.1. The main
+interface can be set to 100%, 110%, 125%, or 150%, but that setting is not evidence that every
+Windows DPI, display, or translated layout has passed real-device review.
 
-See the [release notes](RELEASE_NOTES_v0.1.0.md) for the complete verification disclosure.
+See the [release notes](RELEASE_NOTES_v0.1.1.md) for the complete verification disclosure.

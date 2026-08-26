@@ -2,7 +2,7 @@
 
 [한국어](QUALITY-AND-SAFETY.ko.md) · [Known limitations](KNOWN-LIMITATIONS.md) · [Security](../SECURITY.md)
 
-This document explains the engineering boundaries and evidence expected for the v0.1.0 Free Early
+This document explains the engineering boundaries and evidence expected for the v0.1.1 Free Early
 Access release. It is not a certificate that the app is error-free, accurate for every language,
 legally suitable in every jurisdiction, or approved by a security product.
 
@@ -48,6 +48,11 @@ make every third-party application or IME compatible.
   fixed extension and atomic replacement boundary.
 - Recording, transcription, model changes, exports, summary work, and update installation share
   backend work gates to reduce races.
+- Recording, stopping, and processing are separate user-visible states. Recording duration freezes
+  when capture ends; processing reports elapsed time and measured backlog without inventing an
+  estimated completion time.
+- Duplicate stop requests are suppressed. A separate cancel-remaining action keeps text already
+  recognized, closes delivery of later session output, and cooperatively cancels pending inference.
 - Unsaved frontend results and unacknowledged backend output participate in close and update
   protection. Discarding results requires an explicit choice.
 - Single-instance handling returns a second launch to the existing app instead of starting a
@@ -80,7 +85,7 @@ same-user malware, unlocked-device access, memory inspection, backups, or synchr
   third-party notices, and an SPDX SBOM. Publication permits only the release process's exact
   asset allowlist.
 
-The Tauri signature is not Windows Authenticode publisher identity. The v0.1.0 installer remains
+The Tauri signature is not Windows Authenticode publisher identity. The v0.1.1 installer remains
 unsigned to Windows and can be warned about or blocked.
 
 ## Automated validation layer
@@ -102,13 +107,24 @@ candidate. A source-level pass does not prove a clean Windows installation, driv
 speech accuracy, long-duration behavior, native translation quality, security-product reputation,
 or legal suitability.
 
+On one development PC, the deterministic 30-minute live-final test passed only the automatic
+functional-completion, queue-drain, result-consistency, and inference-throughput gate. It completed
+146/146 chunks without processing failures and measured 2.569096× realtime inference with standard
+RTF 0.389242. Memory had no automatic pass threshold; working set/private increased by
+19,968,000/18,616,320 bytes from the first full chunk to the end, but one manual observation
+neither proves nor disproves a long-duration leak. The 36-slot product queue configuration was
+used, but maximum observed depth was one, so saturation and backpressure were not exercised. This
+evidence does not cover an actual microphone, resampling, VAD, application session events, UI,
+stop, or cancellation for 30 minutes.
+
 ## Human and real-device validation layer
 
-For v0.1.0, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
-long-duration and nine-language owned benchmarks, nine-language native-speaker review, accessibility
-and DPI/IME checks, security-product behavior, separate-machine updater testing, and launch-region
-legal review are all `NOT_RUN`. The exact matrix is in [Known limitations](KNOWN-LIMITATIONS.md)
-and the [release notes](../RELEASE_NOTES_v0.1.0.md).
+For v0.1.1, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
+actual 30-minute microphone/VAD/session/UI/stop/cancel operation, actual long-meeting and
+nine-language owned benchmarks, nine-language native-speaker review, accessibility and DPI/IME
+checks, security-product behavior, separate-machine v0.1.0 → v0.1.1 updater testing, and
+launch-region legal review are all `NOT_RUN`. The exact matrix is in
+[Known limitations](KNOWN-LIMITATIONS.md) and the [release notes](../RELEASE_NOTES_v0.1.1.md).
 
 Free Early Access deliberately collects real-user evidence after publication. A user report is
 not automatically a pass or benchmark result; reproduction method, non-sensitive sample, device
