@@ -1,6 +1,6 @@
-# Known Limitations — PCssak ModuSori v0.1.0
+# Known Limitations — PCssak ModuSori v0.1.1
 
-[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.0.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
+[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.1.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
 
 This document describes the Free Early Access boundary. It prevents an untested or absent feature
 from being mistaken for a supported promise.
@@ -20,6 +20,20 @@ from being mistaken for a supported promise.
 - Current-user install, repair, update, uninstall, and WebView2 behavior has not completed a clean
   Home/Pro device matrix.
 
+## 0.1.1 interaction and processing changes
+
+- Main-interface scaling can be set to 100%, 110%, 125%, or 150% and is saved. The live-caption
+  overlay has a separate text-size setting. This does not replace the `NOT_RUN` multi-monitor,
+  Windows DPI 100–200%, IME, and nine-language native-speaker matrix.
+- Recording length freezes when capture ends. Stopping and processing are separate states, and
+  processing shows elapsed time and measured recognition backlog rather than a completion estimate.
+- Live final utterances use one-candidate greedy decoding for CPU responsiveness. Batch file
+  transcription retains an accuracy-focused beam size of five; neither path guarantees correct
+  output for a specific speaker or recording.
+- Duplicate stop requests are suppressed. Cancelling remaining transcription keeps text already
+  recognized and closes delivery of later results for that session, but actual 30-minute
+  microphone/session/UI/stop/cancel real-device testing remains `NOT_RUN`.
+
 ## Speech recognition and models
 
 - Whisper output can omit, substitute, duplicate, or mis-segment words, names, numbers, accents,
@@ -27,8 +41,16 @@ from being mistaken for a supported promise.
 - Tiny, Base, Small, Medium, and Large-v3 Turbo are all selectable without payment, but no model is
   guaranteed to be accurate or fast for a particular language, speaker, microphone, noise level,
   or CPU.
-- Long-duration 10/60/120-minute stability and owned nine-language WER/CER, latency, real-time
-  factor, and memory benchmarks are `NOT_RUN` for v0.1.0.
+- A deterministic 30-minute real-time-paced live-final test on one development PC passed only the
+  automatic functional-completion, queue-drain, result-consistency, and inference-throughput gate:
+  146/146 chunks completed without processing failures, at 2.569096× realtime inference and
+  standard RTF 0.389242. Memory had no automatic pass threshold; working set/private increased by
+  19,968,000/18,616,320 bytes from the first full chunk to the end, but one manual observation
+  neither proves nor disproves a long-duration leak. The 36-slot configuration was used, but
+  maximum observed depth was one, so saturation and backpressure were not exercised. It did not
+  exercise an actual microphone, resampling, VAD, application session events, UI, stop, or
+  cancellation. Actual long-duration meetings and owned nine-language WER/CER,
+  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.1.
 - Models are not bundled. First use needs a Hugging Face download, storage, and successful pinned
   size and SHA-256 verification.
 - The release is CPU-only. Model memory guidance is not a validated total-system RAM minimum.
@@ -106,21 +128,23 @@ from being mistaken for a supported promise.
   failure must not be interpreted as proof that no update exists.
 - The user approves download and installation. Active work or unsaved results can block it.
 - Tauri updater signatures protect update bytes but are not Authenticode publisher identity.
-- Separate installed-machine success, restart race, rollback, replay, and tampered-update tests are
-  `NOT_RUN` for v0.1.0.
+- Separate installed-machine v0.1.0 → v0.1.1 success, restart race, rollback, replay, and
+  tampered-update tests are `NOT_RUN` for v0.1.1.
 
 ## Verification disclosure
 
 The following real-device work is not represented as passed:
 
-| Validation | v0.1.0 status |
+| Validation | v0.1.1 status |
 | --- | --- |
+| Deterministic 30-minute live-final test on one development PC | Functional completion, queue drain, result consistency, and throughput gate PASS; memory manually observed without a pass threshold; 36-slot configuration used but saturation/backpressure not exercised; actual microphone/session/UI path excluded |
 | Clean Windows 11 Home x64 install, launch, core work, uninstall | NOT_RUN |
 | Clean Windows 11 Pro x64 install, launch, core work, uninstall | NOT_RUN |
 | Windows 10 22H2 compatibility observation | NOT_RUN; Windows 10 is out of Microsoft support |
 | Intel and AMD device matrix, microphones, loopback, sleep, device removal | NOT_RUN |
 | Multi-monitor, DPI, IME, tray, duplicate launch, update-restart races | NOT_RUN |
-| Long-duration and nine-language owned benchmark audio | NOT_RUN |
+| Actual 30-minute microphone/VAD/session/UI/stop/cancel flow | NOT_RUN |
+| Actual long-meeting and nine-language owned benchmark audio | NOT_RUN |
 | Nine-language native-speaker review of every screen and error | NOT_RUN |
 | Defender, SmartScreen, Smart App Control, and third-party security-product behavior | NOT_RUN |
 | Normal and tampered in-app update on a separate installed machine | NOT_RUN |

@@ -1,7 +1,7 @@
 # 개인정보 처리방침
 
 **PCssak ModuSori — 무료 얼리액세스**
-제품 버전: 0.1.0 · 방침 버전: 0.1.0-2026-08-25 · 적용일: 2026-08-25
+제품 버전: 0.1.1 · 방침 버전: 0.1.1-2026-08-26 · 적용일: 2026-08-26
 개인정보 처리·배포 운영자 표시명: **PCSSAK**
 개인정보 문의: privacy@pcssak.com
 
@@ -11,11 +11,11 @@ PCSSAK은 제품과 공식 배포 경로에서 사용하는 운영자 표시명�
 
 ## 1. 적용 범위
 
-이 방침은 PCssak ModuSori 0.1.0 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
+이 방침은 PCssak ModuSori 0.1.1 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
 
 ## 2. 앱이 PCSSAK 서버로 보내지 않는 정보
 
-검토 대상 0.1.0 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
+검토 대상 0.1.1 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
 
 - 마이크·시스템 오디오와 사용자가 선택한 음성·영상 파일
 - 음성 인식 결과, 음성 타이핑 문구와 실시간 자막
@@ -34,7 +34,7 @@ Windows와 Tauri의 실제 폴더 해석은 환경에 따라 다를 수 있으�
 
 - settings.json: UI·인식 언어, 모델 선택, 단축키, 스레드 수, 오디오 장치 식별자, 자막 오버레이 설정, 마지막 내보내기 폴더 등
 - legal-consent.json: 스키마 버전, 사용자가 본 문서 언어, EULA·개인정보 처리방침 버전과 SHA-256, 동의 시각, 녹음 안전 고지 버전·언어·SHA-256과 확인 시각
-- license.key: 오프라인 라이선스 파일이 별도로 사용되는 미래 또는 내부 구성에서만 존재할 수 있음. 0.1.0 무료 얼리액세스는 결제나 유료 라이선스를 판매하지 않음
+- license.key: 오프라인 라이선스 파일이 별도로 사용되는 미래 또는 내부 구성에서만 존재할 수 있음. 0.1.1 무료 얼리액세스는 결제나 유료 라이선스를 판매하지 않음
 
 동의 시각은 사용자 PC 시계를 기준으로 기록하며 독립된 신뢰 시각이나 참여자 동의 증명이 아닙니다. 문서 내용·버전·해시가 달라지거나 파일이 누락·손상되면 앱은 동의하지 않은 상태로 취급하고 다시 확인을 요구할 수 있습니다.
 
@@ -131,7 +131,7 @@ Windows 보안 업데이트, 장치 잠금, 최소 권한 계정, 디스크 암�
 # Privacy Notice
 
 **PCssak ModuSori — Free Early Access**
-Product version: 0.1.0 · Notice version: 0.1.0-2026-08-25 · Effective: August 25, 2026
+Product version: 0.1.1 · Notice version: 0.1.1-2026-08-26 · Effective: August 26, 2026
 Privacy and distribution-operator display name: **PCSSAK**
 Privacy contact: privacy@pcssak.com
 
@@ -143,11 +143,11 @@ PCSSAK is the operator display name used for the product and official distributi
 
 ## 1. Scope
 
-This Notice explains data kept locally by the PCssak ModuSori 0.1.0 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
+This Notice explains data kept locally by the PCssak ModuSori 0.1.1 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
 
 ## 2. Content not sent to a PCSSAK processing server
 
-The reviewed 0.1.0 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting notes, exports, language processing, and local model inference.
+The reviewed 0.1.1 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting notes, exports, language processing, and local model inference.
 
 The app contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, online profiling, or automatic crash-report upload. It does not upload that audio, transcript, or output to a PCSSAK-operated processing server.
 
@@ -155,7 +155,7 @@ The app contains no PCSSAK account, advertising, telemetry, usage analytics, tra
 
 Windows and Tauri may resolve folders differently by environment. The default application identifier is com.pcssak.modusori.
 
-The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and license.key only in a future or internal offline-license configuration. Version 0.1.0 does not sell a paid license.
+The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and license.key only in a future or internal offline-license configuration. Version 0.1.1 does not sell a paid license.
 
 Consent times use the user's PC clock and are not trusted independent timestamps or proof of participant consent. Missing, corrupt, unknown, or changed document records may require consent again.
 
