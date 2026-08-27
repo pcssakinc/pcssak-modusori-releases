@@ -2,7 +2,7 @@
 
 [한국어](QUALITY-AND-SAFETY.ko.md) · [Known limitations](KNOWN-LIMITATIONS.md) · [Security](../SECURITY.md)
 
-This document explains the engineering boundaries and evidence expected for the v0.1.1 Free Early
+This document explains the engineering boundaries and evidence expected for the v0.1.2 Free Early
 Access release. It is not a certificate that the app is error-free, accurate for every language,
 legally suitable in every jurisdiction, or approved by a security product.
 
@@ -60,6 +60,18 @@ make every third-party application or IME compatible.
 
 These controls reduce common loss and concurrency risks; they do not replace a separate backup.
 
+## Layout and accessibility safety
+
+- The application shell has finite width and height boundaries matching the main WebView.
+- Interface scaling uses the Tauri/WebView2 native page-zoom API rather than CSS `zoom`, keeping
+  layout viewport, responsive breakpoints, and viewport-sized dialogs on one scale boundary.
+- All four feature tabs stay inside one finite, vertically scrollable main-content region. The
+  region can receive keyboard focus, shows a focus ring, and has an accessible name in all nine
+  UI languages.
+- Automated viewport, scale, keyboard, dialog, and rendered-layout contracts are regression
+  evidence only. Real WebView2 DPI 100–200%, multi-monitor, window-resize, touchpad, touch, IME,
+  and assistive-technology testing remains `NOT_RUN`.
+
 ## Unexpected-exit recovery
 
 Recovery stores bounded edit text and timing without source audio, source paths, or filenames.
@@ -85,14 +97,15 @@ same-user malware, unlocked-device access, memory inspection, backups, or synchr
   third-party notices, and an SPDX SBOM. Publication permits only the release process's exact
   asset allowlist.
 
-The Tauri signature is not Windows Authenticode publisher identity. The v0.1.1 installer remains
+The Tauri signature is not Windows Authenticode publisher identity. The v0.1.2 installer remains
 unsigned to Windows and can be warned about or blocked.
 
 ## Automated validation layer
 
 Before publication, the exact candidate is required to record successful results for:
 
-- frontend contract tests and rendered DOM, keyboard, focus, and accessibility interaction tests;
+- frontend contract tests and rendered DOM, keyboard, focus, accessibility, viewport, and scale
+  interaction tests;
 - TypeScript checking and production Vite build;
 - Rust unit and integration tests, formatting, Clippy with warnings denied, and release build;
 - single-instance, close, update, model, consent, recovery, quota, export, and concurrency contracts;
@@ -119,12 +132,13 @@ stop, or cancellation for 30 minutes.
 
 ## Human and real-device validation layer
 
-For v0.1.1, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
+For v0.1.2, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
 actual 30-minute microphone/VAD/session/UI/stop/cancel operation, actual long-meeting and
-nine-language owned benchmarks, nine-language native-speaker review, accessibility and DPI/IME
-checks, security-product behavior, separate-machine v0.1.0 → v0.1.1 updater testing, and
+nine-language owned benchmarks, nine-language native-speaker review, WebView2 DPI 100–200%,
+multi-monitor, window-resize, touchpad, touch, IME and assistive-technology checks,
+security-product behavior, separate-machine v0.1.1 → v0.1.2 updater testing, and
 launch-region legal review are all `NOT_RUN`. The exact matrix is in
-[Known limitations](KNOWN-LIMITATIONS.md) and the [release notes](../RELEASE_NOTES_v0.1.1.md).
+[Known limitations](KNOWN-LIMITATIONS.md) and the [release notes](../RELEASE_NOTES_v0.1.2.md).
 
 Free Early Access deliberately collects real-user evidence after publication. A user report is
 not automatically a pass or benchmark result; reproduction method, non-sensitive sample, device

@@ -1,17 +1,17 @@
 # PCssak ModuSori Support / 지원 안내
 
-PCssak ModuSori 0.1.1 is Free Early Access. Support is best-effort and has no guaranteed response
+PCssak ModuSori 0.1.2 is Free Early Access. Support is best-effort and has no guaranteed response
 or resolution time. This repository handles public download documentation, reproducible defects,
 and product feedback; it is not a source-code support repository.
 
-PCssak ModuSori 0.1.1은 무료 얼리액세스입니다. 지원은 가능한 범위에서 제공하며 응답·해결
+PCssak ModuSori 0.1.2는 무료 얼리액세스입니다. 지원은 가능한 범위에서 제공하며 응답·해결
 시간을 보장하지 않습니다. 이 저장소는 공개 다운로드 문서·재현 가능한 결함·제품 의견을
 다루며 소스 코드 지원 저장소가 아닙니다.
 
 ## Before reporting / 제보 전 확인
 
 1. Confirm the version shown in the app footer and use only an official fixed GitHub Release.
-2. Read the [release notes](RELEASE_NOTES_v0.1.1.md),
+2. Read the [release notes](RELEASE_NOTES_v0.1.2.md),
    [system requirements](SYSTEM_REQUIREMENTS.md), and
    [known limitations](docs/KNOWN-LIMITATIONS.md).
 3. Restart the application normally. Do not reinstall or delete recovery data until you have
@@ -19,7 +19,7 @@ PCssak ModuSori 0.1.1은 무료 얼리액세스입니다. 지원은 가능한 �
 4. Search existing issues. Report one reproducible problem or one user need per issue.
 
 1. 앱 하단 버전을 확인하고 공식 고정 GitHub 릴리스만 사용하십시오.
-2. [릴리스 노트](RELEASE_NOTES_v0.1.1.md), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md),
+2. [릴리스 노트](RELEASE_NOTES_v0.1.2.md), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md),
    [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)을 확인하십시오.
 3. 앱을 정상적으로 다시 시작하십시오. 반복 여부를 기록하기 전에 재설치하거나 복구 자료를
    지우지 마십시오.

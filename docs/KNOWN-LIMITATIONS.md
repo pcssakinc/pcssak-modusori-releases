@@ -1,6 +1,6 @@
-# Known Limitations — PCssak ModuSori v0.1.1
+# Known Limitations — PCssak ModuSori v0.1.2
 
-[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.1.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
+[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.2.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
 
 This document describes the Free Early Access boundary. It prevents an untested or absent feature
 from being mistaken for a supported promise.
@@ -20,11 +20,14 @@ from being mistaken for a supported promise.
 - Current-user install, repair, update, uninstall, and WebView2 behavior has not completed a clean
   Home/Pro device matrix.
 
-## 0.1.1 interaction and processing changes
+## 0.1.2 layout and inherited processing changes
 
-- Main-interface scaling can be set to 100%, 110%, 125%, or 150% and is saved. The live-caption
-  overlay has a separate text-size setting. This does not replace the `NOT_RUN` multi-monitor,
-  Windows DPI 100–200%, IME, and nine-language native-speaker matrix.
+- Main-interface scaling uses Tauri/WebView2 native page zoom and can be set to 100%, 110%, 125%,
+  or 150%. The app shell and shared main-content region now have finite WebView boundaries and the
+  main region is vertically scrollable and keyboard-focusable.
+- The live-caption overlay keeps its separate text-size setting. The automated layout contracts
+  do not replace the `NOT_RUN` real WebView2 DPI 100–200%, multi-monitor, window-resize, touchpad,
+  touch, IME, assistive-technology, and nine-language native-speaker matrix.
 - Recording length freezes when capture ends. Stopping and processing are separate states, and
   processing shows elapsed time and measured recognition backlog rather than a completion estimate.
 - Live final utterances use one-candidate greedy decoding for CPU responsiveness. Batch file
@@ -50,7 +53,7 @@ from being mistaken for a supported promise.
   maximum observed depth was one, so saturation and backpressure were not exercised. It did not
   exercise an actual microphone, resampling, VAD, application session events, UI, stop, or
   cancellation. Actual long-duration meetings and owned nine-language WER/CER,
-  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.1.
+  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.2.
 - Models are not bundled. First use needs a Hugging Face download, storage, and successful pinned
   size and SHA-256 verification.
 - The release is CPU-only. Model memory guidance is not a validated total-system RAM minimum.
@@ -128,21 +131,22 @@ from being mistaken for a supported promise.
   failure must not be interpreted as proof that no update exists.
 - The user approves download and installation. Active work or unsaved results can block it.
 - Tauri updater signatures protect update bytes but are not Authenticode publisher identity.
-- Separate installed-machine v0.1.0 → v0.1.1 success, restart race, rollback, replay, and
-  tampered-update tests are `NOT_RUN` for v0.1.1.
+- Separate installed-machine v0.1.1 → v0.1.2 success, restart race, rollback, replay, and
+  tampered-update tests are `NOT_RUN` for v0.1.2.
 
 ## Verification disclosure
 
 The following real-device work is not represented as passed:
 
-| Validation | v0.1.1 status |
+| Validation | v0.1.2 status |
 | --- | --- |
 | Deterministic 30-minute live-final test on one development PC | Functional completion, queue drain, result consistency, and throughput gate PASS; memory manually observed without a pass threshold; 36-slot configuration used but saturation/backpressure not exercised; actual microphone/session/UI path excluded |
 | Clean Windows 11 Home x64 install, launch, core work, uninstall | NOT_RUN |
 | Clean Windows 11 Pro x64 install, launch, core work, uninstall | NOT_RUN |
 | Windows 10 22H2 compatibility observation | NOT_RUN; Windows 10 is out of Microsoft support |
 | Intel and AMD device matrix, microphones, loopback, sleep, device removal | NOT_RUN |
-| Multi-monitor, DPI, IME, tray, duplicate launch, update-restart races | NOT_RUN |
+| WebView2 DPI 100–200%, multi-monitor, window resize, touchpad, touch, IME, and assistive technology | NOT_RUN |
+| Tray, duplicate launch, and update-restart races | NOT_RUN |
 | Actual 30-minute microphone/VAD/session/UI/stop/cancel flow | NOT_RUN |
 | Actual long-meeting and nine-language owned benchmark audio | NOT_RUN |
 | Nine-language native-speaker review of every screen and error | NOT_RUN |

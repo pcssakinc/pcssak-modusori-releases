@@ -2,13 +2,13 @@
 
 [한국어](SYSTEM_REQUIREMENTS.ko.md) · [Installation](docs/INSTALLATION.md) · [Known limitations](docs/KNOWN-LIMITATIONS.md)
 
-These are the v0.1.1 Free Early Access release boundaries, not a guarantee that every machine
+These are the v0.1.2 Free Early Access release boundaries, not a guarantee that every machine
 meeting them has been validated. Clean Windows and hardware-matrix testing is `NOT_RUN` for this
 release.
 
 ## Required platform
 
-| Area | v0.1.1 requirement or boundary |
+| Area | v0.1.2 requirement or boundary |
 | --- | --- |
 | Operating system | Currently serviced Windows 11 Home or Pro, x64, with current security updates is the primary target |
 | CPU architecture | x86-64 (`x64`) only |
@@ -48,7 +48,7 @@ observations; one run neither proves nor disproves a long-duration leak. The 36-
 configuration was used, but maximum observed depth was one, so saturation and backpressure were
 not exercised. This test did not exercise an actual microphone, resampling, VAD, application
 session events, UI, stop, or cancellation for 30 minutes. That end-to-end test and the wider real-device performance
-matrix remain `NOT_RUN` for v0.1.1.
+matrix remain `NOT_RUN` for v0.1.2.
 
 ## Storage
 
@@ -91,8 +91,9 @@ to work around a failure.
 The UI includes English, Korean, Japanese, German, French, Latin American Spanish, Brazilian
 Portuguese, Turkish, and Russian. Whisper is multilingual, but accuracy is not guaranteed by the
 presence of a language choice. Nine-language native-speaker review, Narrator, high contrast,
-multi-monitor, IME, and 125–200% DPI real-device testing are `NOT_RUN` for v0.1.1. The main
-interface can be set to 100%, 110%, 125%, or 150%, but that setting is not evidence that every
+multi-monitor, window-resize, touchpad, touch, IME, assistive technology, and 100–200% DPI
+real-device testing are `NOT_RUN` for v0.1.2. The main interface can be set to 100%, 110%, 125%,
+or 150%, but that setting is not evidence that every
 Windows DPI, display, or translated layout has passed real-device review.
 
-See the [release notes](RELEASE_NOTES_v0.1.1.md) for the complete verification disclosure.
+See the [release notes](RELEASE_NOTES_v0.1.2.md) for the complete verification disclosure.
