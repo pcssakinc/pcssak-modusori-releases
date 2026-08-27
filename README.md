@@ -1,6 +1,6 @@
 # PCssak ModuSori — Official Windows Downloads
 
-[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.1 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.1)
+[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.2 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
 
 **Turn speech into text on your own Windows PC.** PCssak ModuSori is a local-first dictation,
 live-caption, media-transcription, and extractive meeting-notes application powered by five
@@ -15,32 +15,26 @@ optional Whisper models.
 > release-note assets. If the release page or those required assets are absent, there is no
 > approved public PCssak ModuSori build.
 
-## Free Early Access 0.1.1
+## Free Early Access 0.1.2
 
-Version 0.1.1 is an urgent usability and transcription-responsiveness update based on the first
-installed-build dictation test. It does not claim that every device, language, or jurisdiction
-has already been validated.
+Version 0.1.2 is an urgent application-wide vertical-scrolling patch. It fixes content that could
+be clipped below the window at enlarged interface scales without changing speech recognition,
+Free 0.1.x limits, the model catalogue, supported platforms, or the privacy boundary. It does not
+claim that every device, scale, language, or jurisdiction has already been validated.
 
-### What changed in 0.1.1
+### What changed in 0.1.2
 
-- Interface scaling at **100%, 110%, 125%, or 150%**, saved for the next launch
-- Separate recording length, processing time, and measured recognition backlog without an
-  invented completion estimate
-- Faster live dictation finalization on CPU while batch transcription keeps its accuracy-focused
-  decoding path
-- Duplicate-stop protection and an explicit option to cancel remaining transcription while
-  keeping text that was already recognized
+- The application shell now has finite WebView width and height boundaries.
+- Interface scaling uses Tauri/WebView2 native page zoom instead of CSS `zoom`.
+- Dictation, Live Subtitles, File Transcription, and Meeting Notes share one finite, vertically
+  scrollable main-content region.
+- The shared region is keyboard-focusable and has a visible focus ring and an accessible name in
+  all nine UI languages.
 
-On one development PC, the deterministic, real-time-paced 30-minute live-final test passed only
-the automatic functional-completion, queue-drain, result-consistency, and inference-throughput
-gate: 146/146 chunks completed with no processing failures, and inference measured 2.569096×
-realtime (standard RTF 0.389242). Memory had no automatic pass threshold; working set/private
-memory increased by 19,968,000/18,616,320 bytes from the first full chunk to the end, and one run
-neither proves nor disproves a long-duration leak. The product's 36-slot queue configuration was
-used, but maximum observed depth was one, so saturation and backpressure were not exercised. This
-test did **not** use an actual microphone or exercise resampling, VAD, application session events,
-UI, stop, or cancellation for 30 minutes. That real-device
-end-to-end test remains `NOT_RUN`; see the [release notes](RELEASE_NOTES_v0.1.1.md).
+The default interface scale remains 110%, with 100%, 125%, and 150% available in Settings. The
+independent Live Subtitles overlay font-size control is unchanged. Real WebView2 DPI 100–200%,
+multi-monitor, window-resize, touchpad, touch, IME, and assistive-technology testing remains
+`NOT_RUN`; see the [release notes](RELEASE_NOTES_v0.1.2.md).
 
 ### Included features
 
@@ -82,16 +76,16 @@ this release.
   observation target, not a supported platform
 
 Clean Windows, actual-microphone long-duration, device-matrix, native-language, security-product,
-updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.1. Read the
-[release notes](RELEASE_NOTES_v0.1.1.md), [known limitations](docs/KNOWN-LIMITATIONS.md), and
+updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.2. Read the
+[release notes](RELEASE_NOTES_v0.1.2.md), [known limitations](docs/KNOWN-LIMITATIONS.md), and
 [system requirements](SYSTEM_REQUIREMENTS.md) before installation.
 
 ## Download and integrity
 
-Download only from the [fixed official v0.1.1 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.1)
+Download only from the [fixed official v0.1.2 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
 or the official PCSSAK download page.
 
-1. Confirm that the release tag is exactly `v0.1.1` and that it is not a source archive, mirror,
+1. Confirm that the release tag is exactly `v0.1.2` and that it is not a source archive, mirror,
    repack, portable build, MSI, x86 build, or ARM build.
 2. Read `RELEASE-NOTES.md` and `BUILD-PROVENANCE.json` from the same release.
 3. Calculate the downloaded installer's SHA-256 and compare it with the installer's entry in
@@ -102,19 +96,19 @@ or the official PCSSAK download page.
 No installer digest or size is hard-coded in these repository documents. The exact values are
 created from the final release bytes and published only in the fixed release assets.
 
-> **v0.1.1 release-note records:**
-> [`RELEASE_NOTES_v0.1.1.md` at the immutable tag](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.1/RELEASE_NOTES_v0.1.1.md)
+> **v0.1.2 release-note records:**
+> [`RELEASE_NOTES_v0.1.2.md` at the immutable tag](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.2/RELEASE_NOTES_v0.1.2.md)
 > is the version-controlled base note. The fixed Release asset
-> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/RELEASE-NOTES.md)
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/RELEASE-NOTES.md)
 > is the distribution copy and adds final-build and security-verification details; its file digest
-> is listed in [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/SHA256SUMS.txt).
-> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/latest.json)
-> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.1/UPDATE-RELEASE.json)
+> is listed in [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/SHA256SUMS.txt).
+> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/latest.json)
+> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/UPDATE-RELEASE.json)
 > embed updater-facing `notes`. `UPDATE-RELEASE.json`'s `notes_sha256` hashes exactly that UTF-8
 > `notes` value, not either Markdown file.
 
 > [!WARNING]
-> The v0.1.1 installer and application are not Windows Authenticode-signed. Windows may show
+> The v0.1.2 installer and application are not Windows Authenticode-signed. Windows may show
 > **Unknown publisher**, **Windows protected your PC**, or block execution under Smart App
 > Control or organisation policy. The mandatory Tauri updater `.sig` protects the in-app update
 > bytes but is not an Authenticode publisher identity. Do not disable Windows security controls
@@ -151,7 +145,7 @@ and checked by the submitter.
 ## Documentation
 
 - [Korean introduction](README.ko.md)
-- [Release notes](RELEASE_NOTES_v0.1.1.md)
+- [Release notes](RELEASE_NOTES_v0.1.2.md)
 - [System requirements](SYSTEM_REQUIREMENTS.md)
 - [Installation and update](docs/INSTALLATION.md)
 - [Known limitations](docs/KNOWN-LIMITATIONS.md)

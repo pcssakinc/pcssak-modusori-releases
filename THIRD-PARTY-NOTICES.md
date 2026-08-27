@@ -1,6 +1,6 @@
 # Third-Party Notices / 제3자 고지
 
-The authoritative v0.1.1 component inventory, locked sources, notices, and complete collected
+The authoritative v0.1.2 component inventory, locked sources, notices, and complete collected
 licence texts are in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt). That file is generated
 from the exact Windows x64 Cargo dependency graph and runtime npm graph used by the release
 workspace. The fixed GitHub Release also publishes the corresponding SPDX SBOM.
@@ -20,7 +20,7 @@ proprietary licence nor this summary removes rights granted by a third-party lic
   checks its pinned byte length and SHA-256 before use.
 - Microsoft Edge WebView2 Runtime is an external Microsoft component required for the UI and can
   be obtained by the Windows installation process when absent.
-- v0.1.1 does not bundle or download FFmpeg, a generative LLM, Ollama, llama.cpp, a speaker-
+- v0.1.2 does not bundle or download FFmpeg, a generative LLM, Ollama, llama.cpp, a speaker-
   diarization engine, CUDA, or Vulkan runtime components.
 
 See [Third-party source availability](docs/THIRD-PARTY-SOURCE.md) for the exact upstream and
@@ -31,7 +31,7 @@ endorsed by OpenAI, Hugging Face, Microsoft, GitHub, or the upstream projects.
 
 ---
 
-v0.1.1의 정확한 구성요소 목록·고정 원본·고지·수집한 라이선스 전문은
+v0.1.2의 정확한 구성요소 목록·고정 원본·고지·수집한 라이선스 전문은
 [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)에 있습니다. 이 파일은 릴리스 작업공간의
 정확한 Windows x64 Cargo 의존성 그래프와 런타임 npm 그래프에서 생성합니다. 고정 GitHub
 릴리스에는 이에 대응하는 SPDX SBOM도 게시합니다.
@@ -50,7 +50,7 @@ PCssak ModuSori의 독점 부분은 [LICENSE](LICENSE)와 [EULA](EULA.md)를 따
   고정 모델을 받을지 선택하며 앱이 고정 바이트 길이·SHA-256을 확인합니다.
 - Microsoft Edge WebView2 Runtime은 UI에 필요한 외부 Microsoft 구성요소이며 없으면 Windows
   설치 과정이 받을 수 있습니다.
-- v0.1.1은 FFmpeg·생성형 LLM·Ollama·llama.cpp·화자분리 엔진·CUDA·Vulkan 런타임을
+- v0.1.2는 FFmpeg·생성형 LLM·Ollama·llama.cpp·화자분리 엔진·CUDA·Vulkan 런타임을
   동봉하거나 내려받지 않습니다.
 
 배포 구성요소의 상위 원본과 대응 원본 경로는

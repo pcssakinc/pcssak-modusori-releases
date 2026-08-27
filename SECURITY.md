@@ -52,20 +52,20 @@ Security-relevant areas include:
 
 ## Release security boundary / 릴리스 보안 경계
 
-- Version 0.1.1 is Windows x64 only and requires AVX2.
+- Version 0.1.2 is Windows x64 only and requires AVX2.
 - The installer is not Windows Authenticode-signed. A Tauri `.sig` is not publisher identity.
 - Verify the fixed official tag and `SHA256SUMS.txt`; never disable Defender, SmartScreen, Smart
   App Control, or organisation policy.
-- Real-device security-product and installed v0.1.0 → v0.1.1 tampered-update tests are `NOT_RUN`;
-  see the [release notes](RELEASE_NOTES_v0.1.1.md).
+- Real-device security-product and installed v0.1.1 → v0.1.2 tampered-update tests are `NOT_RUN`;
+  see the [release notes](RELEASE_NOTES_v0.1.2.md).
 - The app has no telemetry or automatic crash upload. A public issue or email is an external
   disclosure initiated by the user.
 
-- 0.1.1은 AVX2가 필요한 Windows x64 전용입니다.
+- 0.1.2는 AVX2가 필요한 Windows x64 전용입니다.
 - 설치본은 Windows Authenticode로 서명되지 않았으며 Tauri `.sig`는 게시자 신원이 아닙니다.
 - 공식 고정 태그와 `SHA256SUMS.txt`를 확인하고 Defender·SmartScreen·Smart App Control·조직
   정책을 끄지 마십시오.
-- 실제 장치 보안 제품·설치된 v0.1.0→v0.1.1 변조 업데이트 시험은 `NOT_RUN`입니다.
+- 실제 장치 보안 제품·설치된 v0.1.1→v0.1.2 변조 업데이트 시험은 `NOT_RUN`입니다.
 - 앱에는 텔레메트리·자동 오류 업로드가 없습니다. 공개 이슈나 이메일은 사용자가 시작하는
   외부 공개입니다.
 
