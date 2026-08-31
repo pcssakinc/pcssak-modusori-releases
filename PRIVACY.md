@@ -1,7 +1,7 @@
 # 개인정보 처리방침
 
 **PCssak ModuSori — 무료 얼리액세스**
-제품 버전: 0.1.2 · 방침 버전: 0.1.2-2026-08-27 · 적용일: 2026-08-27
+제품 버전: 0.1.5 · 방침 버전: 0.1.5-2026-08-31 · 적용일: 2026-08-31
 개인정보 처리·배포 운영자 표시명: **PCSSAK**
 개인정보 문의: privacy@pcssak.com
 
@@ -11,11 +11,11 @@ PCSSAK은 제품과 공식 배포 경로에서 사용하는 운영자 표시명�
 
 ## 1. 적용 범위
 
-이 방침은 PCssak ModuSori 0.1.2 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
+이 방침은 PCssak ModuSori 0.1.5 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
 
 ## 2. 앱이 PCSSAK 서버로 보내지 않는 정보
 
-검토 대상 0.1.2 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
+검토 대상 0.1.5 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
 
 - 마이크·시스템 오디오와 사용자가 선택한 음성·영상 파일
 - 음성 인식 결과, 음성 타이핑 문구와 실시간 자막
@@ -34,7 +34,7 @@ Windows와 Tauri의 실제 폴더 해석은 환경에 따라 다를 수 있으�
 
 - settings.json: UI·인식 언어, 모델 선택, 단축키, 스레드 수, 오디오 장치 식별자, 자막 오버레이 설정, 마지막 내보내기 폴더 등
 - legal-consent.json: 스키마 버전, 사용자가 본 문서 언어, EULA·개인정보 처리방침 버전과 SHA-256, 동의 시각, 녹음 안전 고지 버전·언어·SHA-256과 확인 시각
-- license.key: 오프라인 라이선스 파일이 별도로 사용되는 미래 또는 내부 구성에서만 존재할 수 있음. 0.1.2 무료 얼리액세스는 결제나 유료 라이선스를 판매하지 않음
+- license.key: 오프라인 라이선스 파일이 별도로 사용되는 미래 또는 내부 구성에서만 존재할 수 있음. 0.1.5 무료 얼리액세스는 결제나 유료 라이선스를 판매하지 않음
 
 동의 시각은 사용자 PC 시계를 기준으로 기록하며 독립된 신뢰 시각이나 참여자 동의 증명이 아닙니다. 문서 내용·버전·해시가 달라지거나 파일이 누락·손상되면 앱은 동의하지 않은 상태로 취급하고 다시 확인을 요구할 수 있습니다.
 
@@ -57,7 +57,7 @@ SRT, WebVTT, Markdown, TXT 등 내보낸 결과는 사용자가 저장 대화상
 복구 파일은 음성 원본, 입력 파일 경로·파일명과 자격증명을 구조적으로 받지 않으며, 복구에 필요한 제한된 텍스트 결과와 시간 정보만 저장하도록 설계되었습니다.
 
 - 전체 평문 최대 4 MiB, 보호 파일 최대 5 MiB
-- 실시간 자막 최대 200줄, 배치 결과 최대 32건과 별도 필드 상한
+- 실시간 자막 최대 2,000줄, 배치 결과 최대 32건과 별도 필드 상한
 - 현재 Windows 사용자에게 묶인 DPAPI 암호화
 - 최대 7일 보유; 만료·손상·알 수 없는 스키마·정책 위반 시 부분 복구 없이 전체 폐기
 - 정상 종료 또는 사용자가 복구 초안을 폐기하면 삭제
@@ -70,6 +70,8 @@ DPAPI는 다른 일반 Windows 계정의 단순 파일 열람 위험을 줄이�
 ### Whisper 모델 다운로드
 
 사용자가 모델 설치를 선택할 때만 앱은 https://huggingface.co/ggerganov/whisper.cpp 와 연결된 HTTPS 저장소·CDN에 요청합니다. 고정 파일명, Range 헤더를 이용한 이어받기와 일반 요청 메타데이터가 전송될 수 있습니다. 받은 파일은 예상 크기와 고정 SHA-256을 통과해야 설치됩니다. 사용자 음성·전사·로컬 파일 경로는 이 요청에 넣지 않습니다.
+
+모델 다운로드와 앱 업데이트 연결은 Windows의 신뢰된 인증서 검증 정책과 지원되는 시스템 프록시 설정을 따를 수 있습니다. 사용자가 속한 조직·학교·보안 제품 또는 직접 설정한 프록시 운영자는 연결 대상 호스트와 일반 HTTPS 메타데이터를 처리할 수 있습니다. 앱은 프록시 요청에 사용자 음성·전사·로컬 파일 경로를 추가하지 않으며, 미신뢰 인증서나 호스트명 불일치를 허용하도록 검증을 끄지 않습니다.
 
 ### 업데이트 확인과 설치
 
@@ -131,7 +133,7 @@ Windows 보안 업데이트, 장치 잠금, 최소 권한 계정, 디스크 암�
 # Privacy Notice
 
 **PCssak ModuSori — Free Early Access**
-Product version: 0.1.2 · Notice version: 0.1.2-2026-08-27 · Effective: August 27, 2026
+Product version: 0.1.5 · Notice version: 0.1.5-2026-08-31 · Effective: August 31, 2026
 Privacy and distribution-operator display name: **PCSSAK**
 Privacy contact: privacy@pcssak.com
 
@@ -143,11 +145,11 @@ PCSSAK is the operator display name used for the product and official distributi
 
 ## 1. Scope
 
-This Notice explains data kept locally by the PCssak ModuSori 0.1.2 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
+This Notice explains data kept locally by the PCssak ModuSori 0.1.5 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
 
 ## 2. Content not sent to a PCSSAK processing server
 
-The reviewed 0.1.2 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting notes, exports, language processing, and local model inference.
+The reviewed 0.1.5 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting summaries, exports, language processing, and local model inference.
 
 The app contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, online profiling, or automatic crash-report upload. It does not upload that audio, transcript, or output to a PCSSAK-operated processing server.
 
@@ -155,7 +157,7 @@ The app contains no PCSSAK account, advertising, telemetry, usage analytics, tra
 
 Windows and Tauri may resolve folders differently by environment. The default application identifier is com.pcssak.modusori.
 
-The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and license.key only in a future or internal offline-license configuration. Version 0.1.2 does not sell a paid license.
+The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and license.key only in a future or internal offline-license configuration. Version 0.1.5 does not sell a paid license.
 
 Consent times use the user's PC clock and are not trusted independent timestamps or proof of participant consent. Missing, corrupt, unknown, or changed document records may require consent again.
 
@@ -167,7 +169,7 @@ SRT, WebVTT, Markdown, TXT, and other exported results are stored only where the
 
 ## 4. Unexpected-exit recovery
 
-The recovery format is designed not to accept source audio, input paths, filenames, or credentials. It stores only bounded text results and timing needed for recovery: up to 4 MiB plaintext and 5 MiB protected file size, up to 200 live-caption lines and 32 batch results with additional field limits.
+The recovery format is designed not to accept source audio, input paths, filenames, or credentials. It stores only bounded text results and timing needed for recovery: up to 4 MiB plaintext and 5 MiB protected file size, up to 2,000 live-caption lines and 32 batch results with additional field limits.
 
 The entire draft is protected with Windows current-user DPAPI. It is designed to be deleted after normal shutdown or user discard and, in all cases, rejected and deleted when older than seven days, corrupt, unknown, or outside policy. Lower revisions cannot overwrite a newer draft.
 
@@ -176,6 +178,8 @@ DPAPI reduces simple file access from another ordinary Windows account. It does 
 ## 5. Network access and external recipients
 
 When the user chooses a Whisper model, the app requests a fixed file from https://huggingface.co/ggerganov/whisper.cpp and connected HTTPS storage or CDN services. Requests may contain the fixed filename, Range headers for resume, and ordinary network metadata. The download must match the expected size and pinned SHA-256. User audio, transcripts, and local paths are not included.
+
+Model-download and app-update connections may follow Windows trusted-certificate verification policy and supported system-proxy settings. A proxy operated by the user's organization, school, security product, or the user may process the destination host and ordinary HTTPS metadata. The app does not add audio, transcripts, or local paths to proxy requests, and it does not disable certificate or hostname verification to accept an untrusted connection.
 
 After startup-state recovery, a release process may check public GitHub Release latest.json once. If a newer candidate exists, it may additionally request the approved UPDATE-RELEASE.json and its signature, for up to three app-initiated metadata requests. If the user approves installation, the metadata is rechecked and one installer is downloaded. A manual check is a separate attempt; redirects and CDN internals may add service-side requests.
 

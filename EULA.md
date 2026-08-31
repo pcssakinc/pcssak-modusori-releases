@@ -1,7 +1,7 @@
 # 최종 사용자 사용권 계약(EULA)
 
 **PCssak ModuSori — 무료 얼리액세스**
-제품 버전: 0.1.2 · 계약 버전: 0.1.2-2026-08-27 · 적용일: 2026-08-27
+제품 버전: 0.1.5 · 계약 버전: 0.1.5-2026-08-31 · 적용일: 2026-08-31
 제품 표시명: **PCssak ModuSori**
 라이선스 제공자·배포 운영자 표시명: **PCSSAK**
 공식 계약·지원 연락처: support@pcssak.com
@@ -33,7 +33,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 - 등록된 Whisper Tiny, Base, Small, Medium, Large-v3 Turbo 모델 모두 사용 가능
 - 파일 전사: 파일당 최대 15분
 - 음성 타이핑: 현지 날짜 기준 하루 15회
-- 실시간 자막: 세션당 최대 5분; 새 세션 시작 가능
+- 실시간 자막: 세션당 최대 30분; 새 세션 시작 가능
 - 회의록 정리: 현지 날짜 기준 하루 3회
 - 영어 번역: 무료 얼리액세스에서 제공하지 않음
 
@@ -53,7 +53,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 ## 5. 로컬 처리, 개인정보와 네트워크
 
-검토 대상 0.1.2 빌드는 음성 인식, 음성 타이핑, 자막, 파일 전사와 추출식 회의록 정리를 사용자 장치에서 수행하도록 설계되었습니다. PCSSAK 계정, 광고, 텔레메트리, 사용량 분석, 추적 SDK와 자동 오류 업로드를 포함하지 않으며 사용자 음성·전사·결과를 PCSSAK 처리 서버로 업로드하지 않습니다.
+검토 대상 0.1.5 빌드는 음성 인식, 음성 타이핑, 자막, 파일 전사와 추출식 회의 요약을 사용자 장치에서 수행하도록 설계되었습니다. PCSSAK 계정, 광고, 텔레메트리, 사용량 분석, 추적 SDK와 자동 오류 업로드를 포함하지 않으며 사용자 음성·전사·결과를 PCSSAK 처리 서버로 업로드하지 않습니다.
 
 다만 다음 상황에서는 외부 네트워크가 사용될 수 있습니다.
 
@@ -63,7 +63,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 - 설치에 필요한 Microsoft Edge WebView2 Runtime이 없을 때 Windows 설치 과정이 Microsoft에 연결할 수 있음
 - 사용자가 홈페이지·도움말·피드백·이메일 링크를 직접 열 때 외부 서비스에 연결함
 
-이때 각 서비스는 IP 주소, 시각, 사용자 에이전트와 일반적인 HTTPS 요청 메타데이터를 독립적으로 처리할 수 있습니다. 자세한 로컬 파일, 보유·삭제와 외부 서비스 경계는 동봉된 개인정보 처리방침을 확인하십시오.
+이때 각 서비스는 IP 주소, 시각, 사용자 에이전트와 일반적인 HTTPS 요청 메타데이터를 독립적으로 처리할 수 있습니다. 모델 다운로드와 업데이트 연결은 Windows의 신뢰된 인증서 검증 정책과 지원되는 시스템 프록시 설정을 따를 수 있으므로 조직·학교·보안 제품 또는 사용자가 설정한 프록시 운영자도 연결 대상과 일반 HTTPS 메타데이터를 처리할 수 있습니다. 앱은 사용자 음성·전사·로컬 경로를 이 요청에 추가하지 않으며, 미신뢰 인증서나 호스트명 불일치를 허용하도록 검증을 끄지 않습니다. 자세한 로컬 파일, 보유·삭제와 외부 서비스 경계는 동봉된 개인정보 처리방침을 확인하십시오.
 
 ## 6. 로컬 저장과 복구
 
@@ -96,7 +96,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 릴리스 빌드는 시작 후 한 번 새 버전을 확인할 수 있습니다. 새 버전 후보가 있을 때 변경 내용과 버전을 보여 주며, 사용자가 승인해야 다운로드·설치를 시작합니다. 진행 중 작업이나 미저장 결과가 있으면 설치가 보류될 수 있습니다. 업데이트 전용 Tauri 서명, 승인된 배포 매니페스트와 SHA-256 검증에 실패하면 적용하지 않습니다.
 
-0.1.2 설치기와 앱은 Windows Authenticode로 서명되지 않았습니다. Windows는 “알 수 없는 게시자”, SmartScreen 또는 Smart App Control 경고·차단을 표시할 수 있습니다. 보안 기능을 끄지 말고 공식 고정 태그 릴리스, 정확한 파일명과 같은 릴리스의 SHA-256을 확인한 뒤 설치 여부를 판단하십시오. Tauri 업데이트 서명은 Authenticode 게시자 서명을 대신하지 않습니다.
+0.1.5 설치기와 앱은 Windows Authenticode로 서명되지 않았습니다. Windows는 “알 수 없는 게시자”, SmartScreen 또는 Smart App Control 경고·차단을 표시할 수 있습니다. 보안 기능을 끄지 말고 공식 고정 태그 릴리스, 정확한 파일명과 같은 릴리스의 SHA-256을 확인한 뒤 설치 여부를 판단하십시오. Tauri 업데이트 서명은 Authenticode 게시자 서명을 대신하지 않습니다.
 
 ## 11. 지원과 변경
 
@@ -131,7 +131,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 # End User License Agreement (EULA)
 
 **PCssak ModuSori — Free Early Access**
-Product version: 0.1.2 · Agreement version: 0.1.2-2026-08-27 · Effective: August 27, 2026
+Product version: 0.1.5 · Agreement version: 0.1.5-2026-08-31 · Effective: August 31, 2026
 Product display name: **PCssak ModuSori**
 License-provider and distribution-operator display name: **PCSSAK**
 Official contract and support contact: support@pcssak.com
@@ -154,7 +154,7 @@ This release is not a certification that qualified counsel reviewed every launch
 
 Subject to this agreement, the Provider grants you a worldwide, non-exclusive, royalty-free, non-transferable license to use the approved executable on Windows devices you own or control for personal use and internal business evaluation. There is no user or seat limit. You may use results in which you hold lawful rights for personal or commercial purposes.
 
-The 0.1.x Free Early Access limits are: all registered Whisper Tiny, Base, Small, Medium, and Large-v3 Turbo models; up to 15 minutes per file transcription; 15 dictation uses per local calendar day; five minutes per live-caption session, with a new session permitted; three meeting-note summaries per local calendar day; and no English-translation feature. No payment, paid subscription, or paid license is currently offered.
+The 0.1.x Free Early Access limits are: all registered Whisper Tiny, Base, Small, Medium, and Large-v3 Turbo models; up to 15 minutes per file transcription; 15 dictation uses per local calendar day; 30 minutes per live-caption session, with a new session permitted; three meeting-summary generations per local calendar day; and no English-translation feature. No payment, paid subscription, or paid license is currently offered.
 
 You may share the official download-page or GitHub Release link. You may not resell, rent, sublicense, repackage, publicly mirror, redistribute the installer, or offer the Software itself as a hosted or bureau transcription service.
 
@@ -172,9 +172,9 @@ Stop capture when a participant objects or withdraws consent. Do not use the Sof
 
 ## 5. Local processing, privacy, and network access
 
-The reviewed 0.1.2 build is designed to perform speech recognition, dictation, captions, file transcription, and extractive meeting notes on the user’s device. It contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, or automatic crash upload and does not upload user audio, transcripts, or results to a PCSSAK processing server.
+The reviewed 0.1.5 build is designed to perform speech recognition, dictation, captions, file transcription, and extractive meeting summaries on the user’s device. It contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, or automatic crash upload and does not upload user audio, transcripts, or results to a PCSSAK processing server.
 
-Network access may occur when you request a model from Hugging Face and its CDN; when the release build checks public GitHub Release metadata once per process or you manually check; when you approve an update from the public GitHub Release; when Windows needs Microsoft Edge WebView2 during installation; or when you open a website, help, feedback, or email link. Those providers may independently process ordinary HTTPS metadata such as IP address, time, and user agent. See the bundled Privacy Notice for local files, retention, deletion, and exact external-service boundaries.
+Network access may occur when you request a model from Hugging Face and its CDN; when the release build checks public GitHub Release metadata once per process or you manually check; when you approve an update from the public GitHub Release; when Windows needs Microsoft Edge WebView2 during installation; or when you open a website, help, feedback, or email link. Those providers may independently process ordinary HTTPS metadata such as IP address, time, and user agent. Model and update connections may follow Windows trusted-certificate policy and supported system-proxy settings, so an organization, school, security product, or user-configured proxy may process the destination and ordinary HTTPS metadata. The app does not add audio, transcripts, or local paths to those requests and does not disable certificate or hostname verification to accept an untrusted connection. See the bundled Privacy Notice for local files, retention, deletion, and exact external-service boundaries.
 
 ## 6. Local storage and recovery
 
@@ -198,7 +198,7 @@ Do not use output as the sole basis for decisions concerning medical care, law, 
 
 A release build may check once after startup for a newer version. It presents a candidate and starts download and installation only after user approval. Active work or unsaved results may defer installation. An update is not applied if the Tauri updater signature, approved release manifest, or SHA-256 verification fails.
 
-The 0.1.2 installer and app are not Windows Authenticode-signed. Windows may show Unknown publisher, SmartScreen, or Smart App Control warnings or blocks. Do not disable security features. Verify the official fixed-tag release, exact filename, and SHA-256 from the same release before deciding to install. A Tauri updater signature is not an Authenticode publisher signature.
+The 0.1.5 installer and app are not Windows Authenticode-signed. Windows may show Unknown publisher, SmartScreen, or Smart App Control warnings or blocks. Do not disable security features. Verify the official fixed-tag release, exact filename, and SHA-256 from the same release before deciding to install. A Tauri updater signature is not an Authenticode publisher signature.
 
 ## 11. Support and changes
 

@@ -52,20 +52,35 @@ Security-relevant areas include:
 
 ## Release security boundary / 릴리스 보안 경계
 
-- Version 0.1.2 is Windows x64 only and requires AVX2.
+- Version 0.1.5 is Windows x64 only and requires AVX2.
+- Free Early Access limits each live-caption session to 30 minutes; the actual 30-minute
+  microphone/session/UI/stop/cancel path remains `NOT_RUN` on a real-device matrix.
 - The installer is not Windows Authenticode-signed. A Tauri `.sig` is not publisher identity.
 - Verify the fixed official tag and `SHA256SUMS.txt`; never disable Defender, SmartScreen, Smart
   App Control, or organisation policy.
-- Real-device security-product and installed v0.1.1 → v0.1.2 tampered-update tests are `NOT_RUN`;
-  see the [release notes](RELEASE_NOTES_v0.1.2.md).
+- Model downloads follow Windows platform certificate verification and supported Windows
+  system-proxy settings. Certificate and hostname checks remain mandatory; never disable them or
+  antivirus TLS inspection, and never use an HTTP fallback or untrusted mirror.
+- The original `UnknownIssuer` PC's installed v0.1.5 → Tiny/Base download → model load → restart,
+  real-device security-product behavior, and installed public v0.1.3 → v0.1.5 tampered-update
+  tests are `NOT_RUN`. The owner approved the first path for immediate post-publication Free Early
+  Access validation; it is not represented as passed. See [known limitations](docs/KNOWN-LIMITATIONS.md).
 - The app has no telemetry or automatic crash upload. A public issue or email is an external
   disclosure initiated by the user.
 
-- 0.1.2는 AVX2가 필요한 Windows x64 전용입니다.
+- 0.1.5는 AVX2가 필요한 Windows x64 전용입니다.
+- 무료 얼리액세스 실시간 자막은 세션당 최대 30분이며 실제 30분 마이크·세션·UI·중지·취소
+  흐름은 실제 장치 조합에서 `NOT_RUN`입니다.
 - 설치본은 Windows Authenticode로 서명되지 않았으며 Tauri `.sig`는 게시자 신원이 아닙니다.
 - 공식 고정 태그와 `SHA256SUMS.txt`를 확인하고 Defender·SmartScreen·Smart App Control·조직
   정책을 끄지 마십시오.
-- 실제 장치 보안 제품·설치된 v0.1.1→v0.1.2 변조 업데이트 시험은 `NOT_RUN`입니다.
+- 모델 다운로드는 Windows 플랫폼 인증서 검증과 지원 범위의 Windows 시스템 프록시를
+  따릅니다. 인증서·호스트명 검증과 백신 TLS 검사를 끄거나 HTTP·미신뢰 미러로 우회하지
+  마십시오.
+- 최초 `UnknownIssuer`가 난 PC의 v0.1.5 설치→Tiny/Base 다운로드→모델 로드→재시작, 실제
+  장치 보안 제품 동작, 공개 v0.1.3→v0.1.5 변조 업데이트 시험은 `NOT_RUN`입니다. 관리자가 첫
+  경로를 무료 얼리액세스 공개 직후 검증하도록 승인했지만 통과로 표시하지 않습니다. 자세한
+  내용은 [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)을 확인하십시오.
 - 앱에는 텔레메트리·자동 오류 업로드가 없습니다. 공개 이슈나 이메일은 사용자가 시작하는
   외부 공개입니다.
 

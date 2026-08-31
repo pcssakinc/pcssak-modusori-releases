@@ -2,7 +2,7 @@
 
 [한국어](QUALITY-AND-SAFETY.ko.md) · [Known limitations](KNOWN-LIMITATIONS.md) · [Security](../SECURITY.md)
 
-This document explains the engineering boundaries and evidence expected for the v0.1.2 Free Early
+This document explains the engineering boundaries and evidence expected for the v0.1.5 Free Early
 Access release. It is not a certificate that the app is error-free, accurate for every language,
 legally suitable in every jurisdiction, or approved by a security product.
 
@@ -13,6 +13,10 @@ legally suitable in every jurisdiction, or approved by a security product.
 3. A locally installed, hash-verified Whisper model produces text on the PC.
 4. The user reviews the transcript, captions, or extractive meeting notes.
 5. Only an explicit save or copy action sends results to a user-chosen destination.
+
+Free Early Access limits each live-caption session to 30 minutes and allows another session after
+the limit. This product limit is not evidence that a real 30-minute microphone/session/UI path has
+passed.
 
 The app has no PCSSAK account, telemetry, advertising, usage analytics, tracking SDK, or automatic
 crash upload. User audio and text are not sent to a PCSSAK processing server. Model, update,
@@ -88,6 +92,9 @@ same-user malware, unlocked-device access, memory inspection, backups, or synchr
   `ggerganov/whisper.cpp` Hugging Face source.
 - Each model has a fixed filename, exact size, and pinned SHA-256. Partial downloads resume, but a
   final mismatch is rejected instead of installed.
+- Model-download HTTPS uses Windows platform certificate verification and supported Windows
+  system-proxy settings. Certificate and hostname checks stay enabled; there is no invalid-
+  certificate bypass, HTTP fallback, or automatic certificate-authority installation.
 - Update discovery uses this public release repository. Installation requires user approval and
   is blocked while protected work or unsaved output exists.
 - The app verifies a Tauri installer signature, a separately signed release manifest, version,
@@ -97,7 +104,7 @@ same-user malware, unlocked-device access, memory inspection, backups, or synchr
   third-party notices, and an SPDX SBOM. Publication permits only the release process's exact
   asset allowlist.
 
-The Tauri signature is not Windows Authenticode publisher identity. The v0.1.2 installer remains
+The Tauri signature is not Windows Authenticode publisher identity. The v0.1.5 installer remains
 unsigned to Windows and can be warned about or blocked.
 
 ## Automated validation layer
@@ -132,13 +139,22 @@ stop, or cancellation for 30 minutes.
 
 ## Human and real-device validation layer
 
-For v0.1.2, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
+For v0.1.5, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
 actual 30-minute microphone/VAD/session/UI/stop/cancel operation, actual long-meeting and
 nine-language owned benchmarks, nine-language native-speaker review, WebView2 DPI 100–200%,
 multi-monitor, window-resize, touchpad, touch, IME and assistive-technology checks,
-security-product behavior, separate-machine v0.1.1 → v0.1.2 updater testing, and
+security-product behavior, separate-machine public v0.1.3 → v0.1.5 updater testing, and
 launch-region legal review are all `NOT_RUN`. The exact matrix is in
-[Known limitations](KNOWN-LIMITATIONS.md) and the [release notes](../RELEASE_NOTES_v0.1.2.md).
+[Known limitations](KNOWN-LIMITATIONS.md) and the
+[fixed v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5).
+
+The original `UnknownIssuer` clean PC's installed v0.1.5 → Tiny/Base download → model load → app
+restart path is also `NOT_RUN`. Windows-platform TLS initialization, rejection of an untrusted
+local certificate, a Hugging Face one-byte Range response, and a full Tiny pinned-size/SHA-256
+download passed only within automated or development-PC boundaries. The owner approved testing
+the original PC immediately after free Early Access publication; this decision is not a device
+compatibility pass. Never disable certificate or hostname verification, antivirus TLS inspection,
+or Windows and organisation security controls to produce a pass.
 
 Free Early Access deliberately collects real-user evidence after publication. A user report is
 not automatically a pass or benchmark result; reproduction method, non-sensitive sample, device
