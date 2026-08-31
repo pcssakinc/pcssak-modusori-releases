@@ -1,6 +1,6 @@
 # PCssak ModuSori — Official Windows Downloads
 
-[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.2 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
+[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 
 **Turn speech into text on your own Windows PC.** PCssak ModuSori is a local-first dictation,
 live-caption, media-transcription, and extractive meeting-notes application powered by five
@@ -15,26 +15,30 @@ optional Whisper models.
 > release-note assets. If the release page or those required assets are absent, there is no
 > approved public PCssak ModuSori build.
 
-## Free Early Access 0.1.2
+## Free Early Access 0.1.5
 
-Version 0.1.2 is an urgent application-wide vertical-scrolling patch. It fixes content that could
-be clipped below the window at enlarged interface scales without changing speech recognition,
-Free 0.1.x limits, the model catalogue, supported platforms, or the privacy boundary. It does not
-claim that every device, scale, language, or jurisdiction has already been validated.
+Version 0.1.5 is the cumulative public successor to v0.1.3. It carries forward Dictation
+finalization and latency corrections from the unpublished v0.1.4 source candidate and changes
+model-download HTTPS to the Windows platform trust chain and supported Windows system-proxy
+settings. It does not claim that every device, proxy, security product, language, or jurisdiction
+has already been validated.
 
-### What changed in 0.1.2
+### What changed in 0.1.5
 
-- The application shell now has finite WebView width and height boundaries.
-- Interface scaling uses Tauri/WebView2 native page zoom instead of CSS `zoom`.
-- Dictation, Live Subtitles, File Transcription, and Meeting Notes share one finite, vertically
-  scrollable main-content region.
-- The shared region is keyboard-focusable and has a visible focus ring and an accessible name in
-  all nine UI languages.
+- Model downloads use Windows platform certificate verification instead of the former copied-root/
+  WebPKI path that could report `invalid peer certificate: UnknownIssuer` on a new Windows PC.
+- Supported Windows system-proxy settings are enabled while certificate and hostname verification,
+  pinned model size and SHA-256, partial-download resume, and atomic final publication remain
+  mandatory.
+- Dictation recording, input cleanup, remaining conversion, cancellation, and failure are separate
+  states. Late work and acknowledgements are restricted to their owning session.
+- Live Captions Free Early Access sessions last up to 30 minutes. The user can start another session
+  after the limit.
 
-The default interface scale remains 110%, with 100%, 125%, and 150% available in Settings. The
-independent Live Subtitles overlay font-size control is unchanged. Real WebView2 DPI 100–200%,
-multi-monitor, window-resize, touchpad, touch, IME, and assistive-technology testing remains
-`NOT_RUN`; see the [release notes](RELEASE_NOTES_v0.1.2.md).
+The clean PC that originally reported `UnknownIssuer` has not yet completed the installed v0.1.5
+candidate → Tiny/Base download → model load → app restart test. The owner approved immediate
+post-publication validation for this free Early Access build. Its status is `NOT_RUN`, not a pass;
+see [Known limitations](docs/KNOWN-LIMITATIONS.md).
 
 ### Included features
 
@@ -61,7 +65,7 @@ this release.
 | Whisper models | All five registered models |
 | File transcription | Up to 15 minutes per file |
 | Dictation | 15 uses per local calendar day |
-| Live captions | Five minutes per session; a new session may be started |
+| Live captions | 30 minutes per session; a new session may be started |
 | Meeting notes | Three summaries per local calendar day |
 | English translation | Not available |
 
@@ -76,16 +80,16 @@ this release.
   observation target, not a supported platform
 
 Clean Windows, actual-microphone long-duration, device-matrix, native-language, security-product,
-updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.2. Read the
-[release notes](RELEASE_NOTES_v0.1.2.md), [known limitations](docs/KNOWN-LIMITATIONS.md), and
+updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.5. Read the
+[v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5), [known limitations](docs/KNOWN-LIMITATIONS.md), and
 [system requirements](SYSTEM_REQUIREMENTS.md) before installation.
 
 ## Download and integrity
 
-Download only from the [fixed official v0.1.2 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
+Download only from the [fixed official v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 or the official PCSSAK download page.
 
-1. Confirm that the release tag is exactly `v0.1.2` and that it is not a source archive, mirror,
+1. Confirm that the release tag is exactly `v0.1.5` and that it is not a source archive, mirror,
    repack, portable build, MSI, x86 build, or ARM build.
 2. Read `RELEASE-NOTES.md` and `BUILD-PROVENANCE.json` from the same release.
 3. Calculate the downloaded installer's SHA-256 and compare it with the installer's entry in
@@ -96,19 +100,19 @@ or the official PCSSAK download page.
 No installer digest or size is hard-coded in these repository documents. The exact values are
 created from the final release bytes and published only in the fixed release assets.
 
-> **v0.1.2 release-note records:**
-> [`RELEASE_NOTES_v0.1.2.md` at the immutable tag](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.2/RELEASE_NOTES_v0.1.2.md)
-> is the version-controlled base note. The fixed Release asset
-> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/RELEASE-NOTES.md)
-> is the distribution copy and adds final-build and security-verification details; its file digest
-> is listed in [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/SHA256SUMS.txt).
-> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/latest.json)
-> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/UPDATE-RELEASE.json)
+> **v0.1.5 release-note records:**
+> The fixed Release asset
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/RELEASE-NOTES.md)
+> is the distribution note and includes final-build, verification-boundary, and security details;
+> its file digest is listed in
+> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/SHA256SUMS.txt).
+> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/latest.json)
+> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/UPDATE-RELEASE.json)
 > embed updater-facing `notes`. `UPDATE-RELEASE.json`'s `notes_sha256` hashes exactly that UTF-8
 > `notes` value, not either Markdown file.
 
 > [!WARNING]
-> The v0.1.2 installer and application are not Windows Authenticode-signed. Windows may show
+> The v0.1.5 installer and application are not Windows Authenticode-signed. Windows may show
 > **Unknown publisher**, **Windows protected your PC**, or block execution under Smart App
 > Control or organisation policy. The mandatory Tauri updater `.sig` protects the in-app update
 > bytes but is not an Authenticode publisher identity. Do not disable Windows security controls
@@ -125,6 +129,12 @@ Network access can occur only when the user requests a model from the fixed
 user-approved update download, when Windows needs WebView2, or when the user opens an external
 link. Those providers can process ordinary HTTPS metadata such as IP address, time, user agent,
 and requested asset. See the complete [Privacy Notice](PRIVACY.md).
+
+Model-download HTTPS follows Windows platform trust and supported system-proxy settings. Do not
+disable certificate or hostname verification, Windows security, organisation certificate policy,
+or antivirus TLS inspection to work around a download error. Do not use an HTTP fallback or an
+untrusted mirror. PAC/WPAD-only, WinHTTP-only, integrated-authentication, TLS-inspection, and other
+enterprise proxy combinations remain separately unvalidated.
 
 Unexpected-exit recovery stores bounded editing text and timing without source paths or filenames,
 encrypts the file with current-user Windows DPAPI, and rejects expired or corrupt data. This does
@@ -145,7 +155,7 @@ and checked by the submitter.
 ## Documentation
 
 - [Korean introduction](README.ko.md)
-- [Release notes](RELEASE_NOTES_v0.1.2.md)
+- [v0.1.5 release and release notes](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 - [System requirements](SYSTEM_REQUIREMENTS.md)
 - [Installation and update](docs/INSTALLATION.md)
 - [Known limitations](docs/KNOWN-LIMITATIONS.md)

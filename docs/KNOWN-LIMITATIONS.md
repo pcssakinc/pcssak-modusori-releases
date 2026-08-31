@@ -1,9 +1,16 @@
-# Known Limitations — PCssak ModuSori v0.1.2
+# Known Limitations — PCssak ModuSori v0.1.5
 
-[한국어](KNOWN-LIMITATIONS.ko.md) · [Release notes](../RELEASE_NOTES_v0.1.2.md) · [System requirements](../SYSTEM_REQUIREMENTS.md)
+[한국어](KNOWN-LIMITATIONS.ko.md) · [v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5) · [System requirements](../SYSTEM_REQUIREMENTS.md)
 
 This document describes the Free Early Access boundary. It prevents an untested or absent feature
 from being mistaken for a supported promise.
+
+> [!CAUTION]
+> The owner approved publishing the free v0.1.5 Early Access build before repeating the original
+> `UnknownIssuer` scenario on the same clean Windows PC that reported it. That installed
+> candidate → Tiny/Base download → model load → app restart path is therefore `NOT_RUN`, not a
+> pass. It must be tested immediately after publication, and any required correction will use a
+> higher version without replacing the fixed v0.1.5 assets.
 
 ## Platform and installer
 
@@ -20,7 +27,7 @@ from being mistaken for a supported promise.
 - Current-user install, repair, update, uninstall, and WebView2 behavior has not completed a clean
   Home/Pro device matrix.
 
-## 0.1.2 layout and inherited processing changes
+## 0.1.5 cumulative processing and compatibility changes
 
 - Main-interface scaling uses Tauri/WebView2 native page zoom and can be set to 100%, 110%, 125%,
   or 150%. The app shell and shared main-content region now have finite WebView boundaries and the
@@ -36,6 +43,12 @@ from being mistaken for a supported promise.
 - Duplicate stop requests are suppressed. Cancelling remaining transcription keeps text already
   recognized and closes delivery of later results for that session, but actual 30-minute
   microphone/session/UI/stop/cancel real-device testing remains `NOT_RUN`.
+- Dictation recording, input cleanup, remaining conversion, cancellation, and failure have separate
+  states and actions. Final work is scoped to its owning session, but this does not turn automated
+  ownership and cancellation tests into a real microphone or long-meeting pass.
+- Model-download HTTPS now follows the Windows platform certificate chain and supported Windows
+  system-proxy settings. This replaces the former copied-root/WebPKI path that could report
+  `invalid peer certificate: UnknownIssuer` even when Windows and the browser trusted the server.
 
 ## Speech recognition and models
 
@@ -53,9 +66,17 @@ from being mistaken for a supported promise.
   maximum observed depth was one, so saturation and backpressure were not exercised. It did not
   exercise an actual microphone, resampling, VAD, application session events, UI, stop, or
   cancellation. Actual long-duration meetings and owned nine-language WER/CER,
-  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.2.
+  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.5.
 - Models are not bundled. First use needs a Hugging Face download, storage, and successful pinned
   size and SHA-256 verification.
+- Certificate and hostname verification remain mandatory. There is no invalid-certificate bypass,
+  HTTP fallback, plaintext redirect, or automatic certificate-authority installation. Never turn off
+  certificate verification, Windows security, organisation certificate policy, or antivirus TLS
+  inspection to make a model download succeed. Record the complete non-sensitive error and stop.
+- Supported system-proxy settings do not guarantee every enterprise network. PAC/WPAD-only,
+  WinHTTP-only, integrated-authentication, TLS-inspection, and unusual per-scheme proxy environments
+  still need separate validation. A trusted enterprise root must be deployed by the responsible
+  administrator through normal Windows policy, not installed or accepted by the app.
 - The release is CPU-only. Model memory guidance is not a validated total-system RAM minimum.
 
 ## Features not included
@@ -82,7 +103,7 @@ from being mistaken for a supported promise.
 ## Live captions and audio devices
 
 - One session uses either microphone or Windows system audio, not both.
-- Free Early Access stops a caption session after five minutes; the user may start another session.
+- Free Early Access stops a caption session after 30 minutes; the user may start another session.
 - Loopback capture depends on a compatible active Windows output endpoint. Protected streams,
   exclusive-mode devices, Bluetooth profiles, docks, virtual devices, sleep/resume, and hot-plug
   behavior can differ.
@@ -131,16 +152,19 @@ from being mistaken for a supported promise.
   failure must not be interpreted as proof that no update exists.
 - The user approves download and installation. Active work or unsaved results can block it.
 - Tauri updater signatures protect update bytes but are not Authenticode publisher identity.
-- Separate installed-machine v0.1.1 → v0.1.2 success, restart race, rollback, replay, and
-  tampered-update tests are `NOT_RUN` for v0.1.2.
+- Separate installed-machine public v0.1.3 → v0.1.5 success, restart race, rollback, replay, and
+  tampered-update tests are `NOT_RUN` for v0.1.5.
 
 ## Verification disclosure
 
 The following real-device work is not represented as passed:
 
-| Validation | v0.1.2 status |
+| Validation | v0.1.5 status |
 | --- | --- |
 | Deterministic 30-minute live-final test on one development PC | Functional completion, queue drain, result consistency, and throughput gate PASS; memory manually observed without a pass threshold; 36-slot configuration used but saturation/backpressure not exercised; actual microphone/session/UI path excluded |
+| Original `UnknownIssuer` clean PC: install v0.1.5 candidate → Tiny download → Base download → model load → app restart | `NOT_RUN` — owner-approved post-publication validation for free Early Access; this is not evidence that the original PC is fixed |
+| Development-PC Windows platform TLS initialization, untrusted local-certificate rejection, Hugging Face one-byte Range, and full Tiny pinned-size/SHA-256 download | PASS within those automated/development-PC boundaries only |
+| Manual system proxy, trusted TLS-inspection CA, untrusted CA, PAC/WPAD, and authenticated proxy | NOT_RUN |
 | Clean Windows 11 Home x64 install, launch, core work, uninstall | NOT_RUN |
 | Clean Windows 11 Pro x64 install, launch, core work, uninstall | NOT_RUN |
 | Windows 10 22H2 compatibility observation | NOT_RUN; Windows 10 is out of Microsoft support |

@@ -2,8 +2,8 @@
 
 [한국어](INSTALLATION.ko.md) · [System requirements](../SYSTEM_REQUIREMENTS.md) · [Known limitations](KNOWN-LIMITATIONS.md)
 
-This guide applies to v0.1.2 Free Early Access for Windows x64. Download only from the
-[official fixed v0.1.2 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
+This guide applies to v0.1.5 Free Early Access for Windows x64. Download only from the
+[official fixed v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 or the official [PCSSAK product page](https://pcssak.com/modusori).
 
 ## Before installation
@@ -11,7 +11,7 @@ or the official [PCSSAK product page](https://pcssak.com/modusori).
 1. Confirm that the PC runs a currently serviced Windows 11 Home or Pro x64 installation and that
    its CPU supports AVX2. Other platforms are outside the supported boundary.
 2. Back up important audio, transcripts, notes, and exported files.
-3. Open the fixed `v0.1.2` release and download its Windows x64 NSIS installer and
+3. Open the fixed `v0.1.5` release and download its Windows x64 NSIS installer and
    `SHA256SUMS.txt`. Do not use GitHub's automatically generated source archives.
 4. In PowerShell, calculate the installer digest:
 
@@ -24,7 +24,7 @@ or the official [PCSSAK product page](https://pcssak.com/modusori).
    final filename, digest, and size.
 6. Keep Microsoft Defender, SmartScreen, Smart App Control, and organisation policy enabled.
 
-The v0.1.2 installer is not Windows Authenticode-signed. Windows can show **Unknown publisher** or
+The v0.1.5 installer is not Windows Authenticode-signed. Windows can show **Unknown publisher** or
 a reputation warning even when its SHA-256 matches. The hash verifies byte equality with the
 published asset; it is not publisher identity or a malware guarantee. If security policy blocks
 the installer, stop and use an authorised test PC or wait for a signed release. Do not disable a
@@ -36,7 +36,7 @@ The NSIS installer is configured for the current Windows user and offers English
 Japanese, German, French, International Spanish, Brazilian Portuguese, Turkish, and Russian.
 Choose a language, read the bundled EULA, and continue only if you agree. Current-user installation
 is the intended configuration, but clean-device privilege and policy behavior is `NOT_RUN` for
-v0.1.2.
+v0.1.5.
 
 Microsoft Edge WebView2 Runtime is required for the interface. If it is absent, the installation
 process can connect to Microsoft's WebView2 distribution service. Proxy, offline, organisation,
@@ -45,6 +45,8 @@ and security-product behavior has not completed the real-device matrix.
 On first launch, ModuSori shows the complete EULA and Privacy Notice again. Both checkboxes are
 cleared by default, and both must be actively selected before the app can be used. Recording and
 system-audio work also requires the in-app safety notice and a confirmation for each session.
+Free Early Access limits each live-caption session to 30 minutes; the user may start another
+session after the limit.
 
 ## Install a Whisper model
 
@@ -57,6 +59,17 @@ pinned SHA-256 match.
 Start with a smaller model on a constrained PC. See [system requirements](../SYSTEM_REQUIREMENTS.md)
 for model sizes and memory guidance. Do not copy an unverified model into the application data
 folder or substitute another download URL.
+
+v0.1.5 model-download HTTPS uses Windows platform certificate verification and supported Windows
+system-proxy settings. Certificate and hostname checks, HTTPS-only redirects, the fixed model byte
+length, and pinned SHA-256 remain mandatory. If `UnknownIssuer` or another TLS error appears, do not
+disable certificate verification, Defender, SmartScreen, Smart App Control, organisation policy,
+or antivirus TLS inspection. Do not switch to HTTP or an untrusted mirror. Record only the smallest
+non-sensitive technical detail and contact the responsible network administrator or support.
+
+The same clean PC that first reported `UnknownIssuer` has not yet completed installed v0.1.5 →
+Tiny/Base download → model load → app restart. The owner approved testing that path immediately
+after publishing this free Early Access release. Its status is `NOT_RUN`, not a compatibility pass.
 
 ## Update
 
@@ -71,11 +84,11 @@ folder or substitute another download URL.
 - A Tauri updater signature is not Windows Authenticode. It protects update bytes but does not
   turn an unsigned installer into a known Windows publisher.
 - Only an approved version greater than the installed version can be offered. A separate-PC
-  installed v0.1.1 → v0.1.2 normal and tampered update test remains `NOT_RUN`.
+  installed public v0.1.3 → v0.1.5 normal and tampered update test remains `NOT_RUN`.
 
 If an update check fails, keep using the installed version after a model is available or visit the
 fixed official release page. Never bypass a signature error, replace metadata, or install a mirror
-or repackaged copy. Separate-machine normal and tampered update tests are `NOT_RUN` for v0.1.2.
+or repackaged copy. Separate-machine normal and tampered update tests are `NOT_RUN` for v0.1.5.
 
 ## Repair or reinstall
 

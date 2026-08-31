@@ -1,6 +1,6 @@
 # PCssak ModuSori — 공식 Windows 다운로드
 
-[English](README.md) · [제품 홈페이지](https://pcssak.co.kr/modusori) · [설치 안내](docs/INSTALLATION.ko.md) · [v0.1.2 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
+[English](README.md) · [제품 홈페이지](https://pcssak.co.kr/modusori) · [설치 안내](docs/INSTALLATION.ko.md) · [v0.1.5 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 
 **말한 내용을 자신의 Windows PC에서 문자로 바꿉니다.** PCssak ModuSori는 사용자가
 선택해 내려받는 다섯 Whisper 모델로 동작하는 로컬 우선 음성 타이핑·실시간 자막·미디어
@@ -14,23 +14,27 @@
 > 고지·SBOM·릴리스 노트 자산이 모두 있어야 공식 설치본입니다. 릴리스 페이지나 필수
 > 자산이 없으면 승인된 공개 PCssak ModuSori 빌드가 아닙니다.
 
-## 무료 얼리액세스 0.1.2
+## 무료 얼리액세스 0.1.5
 
-0.1.2는 앱 전체 세로 스크롤 불능을 수정한 긴급 화면 패치입니다. 화면 배율을 확대했을 때
-창 아래 내용이 잘리던 문제를 고치며 음성 인식·무료 0.1.x 한도·모델 목록·지원 플랫폼·
-개인정보 경계는 바꾸지 않습니다. 모든 장치·배율·언어·국가의 검증을 마쳤다는 뜻은 아닙니다.
+0.1.5는 공개 v0.1.3의 누적 후속 버전입니다. 공개하지 않은 v0.1.4 소스 후보의 받아쓰기
+최종화·지연 교정과 모델 다운로드 HTTPS의 Windows 플랫폼 신뢰 체계·지원 범위 시스템 프록시
+변경을 함께 담았습니다. 모든 장치·프록시·보안 제품·언어·국가를 검증했다는 뜻은 아닙니다.
 
-### 0.1.2 핵심 변경
+### 0.1.5 핵심 변경
 
-- 앱 셸의 너비와 높이를 실제 WebView 크기의 유한 경계로 고정
-- CSS `zoom` 대신 Tauri/WebView2 네이티브 페이지 확대 사용
-- 받아쓰기·실시간 자막·파일 변환·회의록을 하나의 유한한 공통 세로 스크롤 영역에 유지
-- 공통 영역에 키보드 초점, 보이는 포커스 표시와 9개 UI 언어 접근성 이름 추가
+- Windows와 브라우저는 서버를 신뢰해도 앱의 과거 루트 복사/WebPKI 경로가 새 PC에서
+  `invalid peer certificate: UnknownIssuer`를 내던 모델 다운로드 구성을 Windows 플랫폼
+  인증서 검증으로 교체
+- 지원 범위의 Windows 시스템 프록시를 활성화하면서 인증서·호스트명 검증, 고정 모델 크기·
+  SHA-256, 부분 다운로드 이어받기와 최종 원자 게시를 계속 필수화
+- 받아쓰기 녹음·입력 정리·남은 변환·취소·실패 상태를 분리하고 늦은 작업·응답을 정확한 소유
+  세션에만 적용
+- 무료 얼리액세스 실시간 자막을 세션당 최대 30분 제공하며 한도 뒤 새 세션 시작 가능
 
-기본 화면 배율은 계속 110%이며 설정에서 100%·125%·150%를 선택할 수 있습니다. 독립 실시간
-자막 오버레이 글자 크기는 바뀌지 않습니다. 실제 WebView2의 OS DPI 100–200%·다중 모니터·
-창 크기·터치패드·터치·IME·보조 기술 실기는 `NOT_RUN`이며 자세한 경계는
-[릴리스 노트](RELEASE_NOTES_v0.1.2.md)에 공개합니다.
+최초 `UnknownIssuer`를 보고한 동일한 깨끗한 PC의 설치 후보→Tiny/Base 다운로드→모델 로드→
+앱 재시작 시험은 아직 완료하지 않았습니다. 관리자는 무료 얼리액세스 공개 직후 검증하도록
+승인했으며 상태는 통과가 아닌 `NOT_RUN`입니다. [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)을
+확인하십시오.
 
 ### 포함 기능
 
@@ -56,7 +60,7 @@
 | Whisper 모델 | 등록된 다섯 모델 모두 |
 | 파일 전사 | 파일당 최대 15분 |
 | 음성 타이핑 | 현지 날짜 기준 하루 15회 |
-| 실시간 자막 | 세션당 5분, 새 세션 시작 가능 |
+| 실시간 자막 | 세션당 30분, 새 세션 시작 가능 |
 | 회의록 | 현지 날짜 기준 하루 3회 |
 | 영어 번역 | 제공하지 않음 |
 
@@ -70,16 +74,16 @@
 - Windows 10 22H2는 Microsoft 지원이 끝났으며 미검증 호환성 관찰 대상일 뿐 지원 플랫폼이 아님
 
 깨끗한 Windows·실제 마이크 장시간·여러 장치·원어민 언어·보안 제품·업데이터·출시 지역
-법률 실기는 v0.1.2에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [릴리스 노트](RELEASE_NOTES_v0.1.2.md),
+법률 실기는 v0.1.5에서 명시적으로 `NOT_RUN`입니다. 설치 전에 [v0.1.5 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5),
 [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)을
 읽으십시오.
 
 ## 다운로드와 무결성 확인
 
-[공식 고정 v0.1.2 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.2)
+[공식 고정 v0.1.5 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 또는 PCSSAK 공식 다운로드 페이지만 사용하십시오.
 
-1. 릴리스 태그가 정확히 `v0.1.2`인지 확인하고 소스 압축 파일·미러·재패키지·포터블·MSI·
+1. 릴리스 태그가 정확히 `v0.1.5`인지 확인하고 소스 압축 파일·미러·재패키지·포터블·MSI·
    x86·ARM 빌드를 사용하지 마십시오.
 2. 같은 릴리스의 `RELEASE-NOTES.md`와 `BUILD-PROVENANCE.json`을 읽으십시오.
 3. 설치 파일의 SHA-256을 계산해 같은 고정 릴리스의 `SHA256SUMS.txt` 설치본 항목과
@@ -90,19 +94,18 @@
 아직 생성하지 않은 설치본 해시나 크기를 저장소 문서에 미리 적지 않습니다. 정확한 값은
 최종 릴리스 바이트에서 만든 뒤 고정 릴리스 자산에만 공개합니다.
 
-> **v0.1.2 릴리스 노트 기록의 역할:**
-> [고정 태그의 `RELEASE_NOTES_v0.1.2.md`](https://github.com/pcssakinc/pcssak-modusori-releases/blob/v0.1.2/RELEASE_NOTES_v0.1.2.md)는
-> 형상관리 기본 노트입니다. 고정 릴리스 자산
-> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/RELEASE-NOTES.md)는
-> 최종 빌드·보안 확인 정보를 덧붙인 배포용 사본이며 파일 해시는
-> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/SHA256SUMS.txt)가
-> 기준입니다. [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/latest.json)과
-> [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.2/UPDATE-RELEASE.json)은
+> **v0.1.5 릴리스 노트 기록의 역할:**
+> 고정 릴리스 자산
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/RELEASE-NOTES.md)는
+> 최종 빌드·검증 경계·보안 정보를 포함한 배포 노트이며 파일 해시는
+> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/SHA256SUMS.txt)가
+> 기준입니다. [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/latest.json)과
+> [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/UPDATE-RELEASE.json)은
 > 업데이터용 `notes`를 내부에 담습니다. `UPDATE-RELEASE.json`의 `notes_sha256`은 두 Markdown
 > 파일이 아니라 UTF-8 인라인 `notes` 값 자체의 해시입니다.
 
 > [!WARNING]
-> v0.1.2 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
+> v0.1.5 설치본과 앱은 Windows Authenticode로 서명되지 않습니다. Windows가 **알 수 없는
 > 게시자**, **Windows의 PC 보호**를 표시하거나 Smart App Control·조직 정책이 실행을 막을
 > 수 있습니다. 필수 Tauri 업데이트 `.sig`는 앱 내부 업데이트 파일을 보호하지만
 > Authenticode 게시자 신원은 아닙니다. 설치를 위해 Windows 보안 기능을 끄지 마십시오.
@@ -118,6 +121,11 @@ GitHub 릴리스 업데이트 확인·사용자 승인 업데이트 다운로드
 사용자가 외부 링크를 열 때만 네트워크를 사용할 수 있습니다. 해당 제공자는 IP 주소·시각·
 사용자 에이전트·요청 자산 같은 일반 HTTPS 메타데이터를 처리할 수 있습니다. 자세한 내용은
 [개인정보 처리방침](PRIVACY.md)을 확인하십시오.
+
+모델 다운로드 HTTPS는 Windows 플랫폼 신뢰와 지원 범위의 시스템 프록시를 따릅니다. 오류를
+우회하려고 인증서·호스트명 검증, Windows 보안, 조직 인증서 정책 또는 백신 TLS 검사를 끄지
+말고 HTTP 폴백·미신뢰 미러도 사용하지 마십시오. PAC/WPAD 전용·WinHTTP 전용·통합 인증·
+TLS 검사 등 기업 프록시 조합은 별도 실기가 남아 있습니다.
 
 비정상 종료 복구는 원본 경로·파일명 없이 제한된 편집 문자와 시간 정보만 저장하고 현재
 Windows 사용자 DPAPI로 파일을 암호화하며 만료·손상 자료를 거부합니다. 관리자나 같은
@@ -136,7 +144,7 @@ Windows 사용자 권한으로 실행되는 악성코드까지 막는 경계는 
 ## 문서
 
 - [영문 소개](README.md)
-- [릴리스 노트](RELEASE_NOTES_v0.1.2.md)
+- [v0.1.5 릴리스와 릴리스 노트](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
 - [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)
 - [설치와 업데이트](docs/INSTALLATION.ko.md)
 - [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)

@@ -1,6 +1,8 @@
 * text=auto
+.gitattributes text eol=lf
 *.md text eol=lf
 *.txt text eol=lf
-LICENSE text eol=lf
+# 릴리스 후보와 LICENSE 바이트를 동일하게 보존하고 CRLF를 문서 오류로 오인하지 않는다.
+LICENSE -text -diff
 *.json text eol=lf
 *.yml text eol=lf
