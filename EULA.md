@@ -1,24 +1,23 @@
 # 최종 사용자 사용권 계약(EULA)
 
-**PCssak ModuSori — 무료 얼리액세스**
-제품 버전: 0.1.5 · 계약 버전: 0.1.5-2026-08-31 · 적용일: 2026-08-31
+**PCssak ModuSori — 무료 버전**
+제품 버전: 0.1.7 · 계약 버전: 0.1.7-2026-09-08 · 적용일: 2026-09-08
 제품 표시명: **PCssak ModuSori**
 라이선스 제공자·배포 운영자 표시명: **PCSSAK**
 공식 계약·지원 연락처: support@pcssak.com
 
 언어 고지: 이 문서의 국문이 계약 기준본입니다. 아래 영문은 글로벌 이용자의 이해를 위한 편의 번역이며 별도의 현지 법률 검수를 완료했다는 뜻이 아닙니다. 이용자에게 적용되는 강행법규와 배포 플랫폼 약관이 다르게 정한 사항은 해당 법규와 약관이 우선합니다. 앱과 설치 화면은 여러 언어를 지원하지만 동봉 EULA 전문은 현재 한글·영문 병기입니다.
 
-PCSSAK은 이 소프트웨어와 공식 배포 경로에서 사용하는 제공자·운영자 표시명입니다. 이 표기가 등록 법인명이나 사업자 등록 상태를 별도로 단정하는 것은 아닙니다. 이번 무료 얼리액세스에서는 실제 우편 주소를 공개하지 않고 위 이메일을 공식 통지 경로로 사용합니다. 이용자 국가의 강행법규 또는 배포 플랫폼이 추가 법적 신원·주소 표시를 요구하면 그 요구가 우선하며, 충족하기 전 해당 지역의 배포·지원이 제한될 수 있습니다.
+PCSSAK은 이 소프트웨어와 공식 배포 경로에서 사용하는 제공자·운영자 표시명입니다. 이 표기가 등록 법인명이나 사업자 등록 상태를 별도로 단정하는 것은 아닙니다. 이번 무료 버전에서는 실제 우편 주소를 공개하지 않고 위 이메일을 공식 통지 경로로 사용합니다. 이용자 국가의 강행법규 또는 배포 플랫폼이 추가 법적 신원·주소 표시를 요구하면 그 요구가 우선하며, 충족하기 전 해당 지역의 배포·지원이 제한될 수 있습니다.
 
 PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 화면에서 EULA와 개인정보 처리방침에 동의하거나 사용하면 이 계약에 동의하는 것입니다. 동의하지 않으면 설치하거나 사용하지 마십시오.
 
-## 1. 무료 얼리액세스
+## 1. 무료 버전의 성격
 
-소프트웨어는 실제 사용자 반응·품질·호환성을 확인하는 정식 출시 전 시험 버전입니다.
+소프트웨어는 무상으로 제공되는 0.1.x 버전입니다.
 
 - 결함, 인식 오류, 성능 저하, 장치 비호환 또는 데이터 손실이 생길 수 있습니다.
-- 기능·제한·지원 범위는 향후 버전에서 추가·변경·중단될 수 있습니다.
-- 0.1.x에서 무료인 기능이 계속 무료이거나 향후 1.0·유료판이 출시된다고 보장하지 않습니다.
+- 기능·제한·지원 범위와 제공 기간은 향후 버전에서 변경되거나 종료될 수 있습니다.
 - 업데이트·보안 수정·지원의 일정, 응답 시간, 이전 버전 호환성을 보장하지 않습니다.
 - 중요 원음과 결과는 별도로 백업하고, 업무에 사용하기 전에 원음과 대조하십시오.
 
@@ -28,16 +27,16 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 이 계약을 지키는 동안 제공자는 사용자가 소유하거나 관리하는 Windows 장치에서 승인된 실행 파일을 개인·내부 업무 평가 목적으로 사용할 수 있는 전 세계적·비독점적·무상·양도 불가능한 사용권을 부여합니다. 사용자 수나 좌석 수 제한은 없습니다. 사용자가 적법한 권리를 가진 결과물은 개인적 또는 상업적으로 사용할 수 있습니다.
 
-0.1.x 무료 얼리액세스 기준은 다음과 같습니다.
+0.1.x 무료 버전의 기능 범위는 다음과 같습니다.
 
 - 등록된 Whisper Tiny, Base, Small, Medium, Large-v3 Turbo 모델 모두 사용 가능
 - 파일 전사: 파일당 최대 15분
 - 음성 타이핑: 현지 날짜 기준 하루 15회
 - 실시간 자막: 세션당 최대 30분; 새 세션 시작 가능
 - 회의록 정리: 현지 날짜 기준 하루 3회
-- 영어 번역: 무료 얼리액세스에서 제공하지 않음
+- 영어 번역: 현재 무료 버전에서 제공하지 않음
 
-현재 결제·유료 구독·유료 라이선스 판매는 제공하지 않습니다. 소프트웨어 자체를 대신 제공하는 호스팅·전사 대행 서비스, 재판매·임대·재라이선스, 공개 다운로드 미러와 재패키징은 허용하지 않습니다. 공식 GitHub 릴리스 또는 PCSSAK 다운로드 페이지 링크는 공유할 수 있습니다.
+소프트웨어 자체를 대신 제공하는 호스팅·전사 대행 서비스, 재판매·임대·재라이선스, 공개 다운로드 미러와 재패키징은 허용하지 않습니다. 공식 GitHub 릴리스 또는 PCSSAK 다운로드 페이지 링크는 공유할 수 있습니다.
 
 ## 3. 사용자 콘텐츠와 결과
 
@@ -53,7 +52,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 ## 5. 로컬 처리, 개인정보와 네트워크
 
-검토 대상 0.1.5 빌드는 음성 인식, 음성 타이핑, 자막, 파일 전사와 추출식 회의 요약을 사용자 장치에서 수행하도록 설계되었습니다. PCSSAK 계정, 광고, 텔레메트리, 사용량 분석, 추적 SDK와 자동 오류 업로드를 포함하지 않으며 사용자 음성·전사·결과를 PCSSAK 처리 서버로 업로드하지 않습니다.
+검토 대상 0.1.7 빌드는 음성 인식, 음성 타이핑, 자막, 파일 전사와 추출식 회의 요약을 사용자 장치에서 수행하도록 설계되었습니다. PCSSAK 계정, 광고, 텔레메트리, 사용량 분석, 추적 SDK와 자동 오류 업로드를 포함하지 않으며 사용자 음성·전사·결과를 PCSSAK 처리 서버로 업로드하지 않습니다.
 
 다만 다음 상황에서는 외부 네트워크가 사용될 수 있습니다.
 
@@ -96,7 +95,7 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 릴리스 빌드는 시작 후 한 번 새 버전을 확인할 수 있습니다. 새 버전 후보가 있을 때 변경 내용과 버전을 보여 주며, 사용자가 승인해야 다운로드·설치를 시작합니다. 진행 중 작업이나 미저장 결과가 있으면 설치가 보류될 수 있습니다. 업데이트 전용 Tauri 서명, 승인된 배포 매니페스트와 SHA-256 검증에 실패하면 적용하지 않습니다.
 
-0.1.5 설치기와 앱은 Windows Authenticode로 서명되지 않았습니다. Windows는 “알 수 없는 게시자”, SmartScreen 또는 Smart App Control 경고·차단을 표시할 수 있습니다. 보안 기능을 끄지 말고 공식 고정 태그 릴리스, 정확한 파일명과 같은 릴리스의 SHA-256을 확인한 뒤 설치 여부를 판단하십시오. Tauri 업데이트 서명은 Authenticode 게시자 서명을 대신하지 않습니다.
+0.1.7 설치기와 앱은 Windows Authenticode로 서명되지 않았습니다. Windows는 “알 수 없는 게시자”, SmartScreen 또는 Smart App Control 경고·차단을 표시할 수 있습니다. 보안 기능을 끄지 말고 공식 고정 태그 릴리스, 정확한 파일명과 같은 릴리스의 SHA-256을 확인한 뒤 설치 여부를 판단하십시오. Tauri 업데이트 서명은 Authenticode 게시자 서명을 대신하지 않습니다.
 
 ## 11. 지원과 변경
 
@@ -130,8 +129,8 @@ PCssak ModuSori(이하 “소프트웨어”)를 설치하거나 최초 실행 �
 
 # End User License Agreement (EULA)
 
-**PCssak ModuSori — Free Early Access**
-Product version: 0.1.5 · Agreement version: 0.1.5-2026-08-31 · Effective: August 31, 2026
+**PCssak ModuSori — Free Version**
+Product version: 0.1.7 · Agreement version: 0.1.7-2026-09-08 · Effective: September 8, 2026
 Product display name: **PCssak ModuSori**
 License-provider and distribution-operator display name: **PCSSAK**
 Official contract and support contact: support@pcssak.com
@@ -140,13 +139,13 @@ Official contract and support contact: support@pcssak.com
 
 The Korean text above governs this agreement. This English text is a convenience translation and is not represented as having been separately reviewed by local legal counsel. Mandatory law applicable to you and applicable distribution-platform terms prevail where they provide otherwise. The app and installer support additional languages, but the bundled EULA is currently bilingual Korean and English.
 
-PCSSAK is the provider and operator display name used for the Software and its official distribution channels. This does not separately assert that PCSSAK is a registered company or business name. This Free Early Access release uses the email above as its official notice channel and does not publish a physical postal address. If mandatory law or a platform in your country requires additional legal identity or address information, that requirement prevails, and distribution or support there may be restricted until it is satisfied.
+PCSSAK is the provider and operator display name used for the Software and its official distribution channels. This does not separately assert that PCSSAK is a registered company or business name. This Free Version uses the email above as its official notice channel and does not publish a physical postal address. If mandatory law or a platform in your country requires additional legal identity or address information, that requirement prevails, and distribution or support there may be restricted until it is satisfied.
 
 By installing, accepting both documents on first launch, or using PCssak ModuSori (the “Software”), you agree to this agreement. If you do not agree, do not install or use the Software.
 
-## 1. Free Early Access
+## 1. Nature of the Free Version
 
-The Software is a pre-release test version for evaluating real-user response, quality, and compatibility. It may contain defects, recognition errors, performance problems, device incompatibilities, or data-loss risks. Features, limits, and support scope may change or end. No continued free availability, version 1.0, paid edition, update schedule, fixed support term, or backward compatibility is promised. Back up important source audio and results and compare important output with the source.
+The Software is provided without charge as a version 0.1.x release. It may contain defects, recognition errors, performance problems, device incompatibilities, or data-loss risks. Features, limits, support scope, and availability may change or end. No update schedule, fixed support term, or backward compatibility is promised. Back up important source audio and results and compare important output with the source.
 
 This release is not a certification that qualified counsel reviewed every launch jurisdiction, that nine-language legal translations were reviewed, or that every Windows and device combination was tested. The official release notes disclose the verification performed and the items not run.
 
@@ -154,7 +153,7 @@ This release is not a certification that qualified counsel reviewed every launch
 
 Subject to this agreement, the Provider grants you a worldwide, non-exclusive, royalty-free, non-transferable license to use the approved executable on Windows devices you own or control for personal use and internal business evaluation. There is no user or seat limit. You may use results in which you hold lawful rights for personal or commercial purposes.
 
-The 0.1.x Free Early Access limits are: all registered Whisper Tiny, Base, Small, Medium, and Large-v3 Turbo models; up to 15 minutes per file transcription; 15 dictation uses per local calendar day; 30 minutes per live-caption session, with a new session permitted; three meeting-summary generations per local calendar day; and no English-translation feature. No payment, paid subscription, or paid license is currently offered.
+The 0.1.x Free Version includes all registered Whisper Tiny, Base, Small, Medium, and Large-v3 Turbo models; up to 15 minutes per file transcription; 15 dictation uses per local calendar day; 30 minutes per live-caption session, with a new session permitted; three meeting-summary generations per local calendar day; and no English-translation feature.
 
 You may share the official download-page or GitHub Release link. You may not resell, rent, sublicense, repackage, publicly mirror, redistribute the installer, or offer the Software itself as a hosted or bureau transcription service.
 
@@ -172,7 +171,7 @@ Stop capture when a participant objects or withdraws consent. Do not use the Sof
 
 ## 5. Local processing, privacy, and network access
 
-The reviewed 0.1.5 build is designed to perform speech recognition, dictation, captions, file transcription, and extractive meeting summaries on the user’s device. It contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, or automatic crash upload and does not upload user audio, transcripts, or results to a PCSSAK processing server.
+The reviewed 0.1.7 build is designed to perform speech recognition, dictation, captions, file transcription, and extractive meeting summaries on the user’s device. It contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, or automatic crash upload and does not upload user audio, transcripts, or results to a PCSSAK processing server.
 
 Network access may occur when you request a model from Hugging Face and its CDN; when the release build checks public GitHub Release metadata once per process or you manually check; when you approve an update from the public GitHub Release; when Windows needs Microsoft Edge WebView2 during installation; or when you open a website, help, feedback, or email link. Those providers may independently process ordinary HTTPS metadata such as IP address, time, and user agent. Model and update connections may follow Windows trusted-certificate policy and supported system-proxy settings, so an organization, school, security product, or user-configured proxy may process the destination and ordinary HTTPS metadata. The app does not add audio, transcripts, or local paths to those requests and does not disable certificate or hostname verification to accept an untrusted connection. See the bundled Privacy Notice for local files, retention, deletion, and exact external-service boundaries.
 
@@ -198,7 +197,7 @@ Do not use output as the sole basis for decisions concerning medical care, law, 
 
 A release build may check once after startup for a newer version. It presents a candidate and starts download and installation only after user approval. Active work or unsaved results may defer installation. An update is not applied if the Tauri updater signature, approved release manifest, or SHA-256 verification fails.
 
-The 0.1.5 installer and app are not Windows Authenticode-signed. Windows may show Unknown publisher, SmartScreen, or Smart App Control warnings or blocks. Do not disable security features. Verify the official fixed-tag release, exact filename, and SHA-256 from the same release before deciding to install. A Tauri updater signature is not an Authenticode publisher signature.
+The 0.1.7 installer and app are not Windows Authenticode-signed. Windows may show Unknown publisher, SmartScreen, or Smart App Control warnings or blocks. Do not disable security features. Verify the official fixed-tag release, exact filename, and SHA-256 from the same release before deciding to install. A Tauri updater signature is not an Authenticode publisher signature.
 
 ## 11. Support and changes
 

@@ -1,6 +1,6 @@
 # PCssak ModuSori — Official Windows Downloads
 
-[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
+[한국어](README.ko.md) · [Product website](https://pcssak.com/modusori) · [Install guide](docs/INSTALLATION.md) · [v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7)
 
 **Turn speech into text on your own Windows PC.** PCssak ModuSori is a local-first dictation,
 live-caption, media-transcription, and extractive meeting-notes application powered by five
@@ -15,30 +15,45 @@ optional Whisper models.
 > release-note assets. If the release page or those required assets are absent, there is no
 > approved public PCssak ModuSori build.
 
-## Free Early Access 0.1.5
+## Free Version 0.1.7
 
-Version 0.1.5 is the cumulative public successor to v0.1.3. It carries forward Dictation
-finalization and latency corrections from the unpublished v0.1.4 source candidate and changes
-model-download HTTPS to the Windows platform trust chain and supported Windows system-proxy
-settings. It does not claim that every device, proxy, security product, language, or jurisdiction
-has already been validated.
+Version 0.1.7 is a cumulative patch for short utterances, language reuse, stopping, and preservation
+of recognized text. It also includes 0.1.6's non-capturing device preflight and one confirmation per
+recording session, plus earlier Windows model-download trust and result-recovery corrections.
+A document describing this version does not open the publication gate above.
 
-### What changed in 0.1.5
+### What changed in 0.1.7
 
-- Model downloads use Windows platform certificate verification instead of the former copied-root/
-  WebPKI path that could report `invalid peer certificate: UnknownIssuer` on a new Windows PC.
-- Supported Windows system-proxy settings are enabled while certificate and hostname verification,
-  pinned model size and SHA-256, partial-download resume, and atomic final publication remain
-  mandatory.
-- Dictation recording, input cleanup, remaining conversion, cancellation, and failure are separate
-  states. Late work and acknowledgements are restricted to their owning session.
-- Live Captions Free Early Access sessions last up to 30 minutes. The user can start another session
-  after the limit.
+- Session language is reused after a final result contains at least six alphabetic characters,
+  or two consecutive valid final results containing letters identify the same language. Numbers-only
+  output and interim hypotheses cannot lock the language. This reduces dependence on one short
+  first utterance; character count and agreement are not a language-confidence guarantee.
+- Dictation submits pending audio after one second of silence following the final utterance's tail
+  padding, while keeping an eight-second upper bound from utterance start. Stopping immediately
+  after a brief click no longer extends the earlier utterance; resumed speech is retained.
+  Submission timing is not total recognition latency.
+- Normal stopping checks inference progress and actual computation in the same session. After
+  60 seconds without activity or a 15-minute absolute limit, Dictation requests cooperative
+  cancellation and preserves partial results. Live Captions keeps a failed session so the user can
+  stop again. Live Captions has no direct cancel control during stopping; ending remaining work
+  uses the app-exit confirmation flow, which can lose unfinalized output. Only Dictation's
+  explicit-cancel path retains a five-second
+  wait budget, not a promise that all computation physically ends within five seconds.
+- A live-recognition noise filter uses silence evidence for phrase, credit, and repetition rules.
+  Number, time, and amount text is preserved during normalization, and number-containing output is
+  not shortened as repetition. Genuine emphasis and credit mentions have regression coverage.
+  The filter does not apply to file transcription and can still make mistakes on real audio.
+- CPU build settings are fixed independently of the build PC and shell environment. AVX2, FMA,
+  and F16C are required and checked before speech processing. Build-setting checks do not prove
+  a complete executable instruction audit or compatibility on every processor.
 
-The clean PC that originally reported `UnknownIssuer` has not yet completed the installed v0.1.5
-candidate → Tiny/Base download → model load → app restart test. The owner approved immediate
-post-publication validation for this free Early Access build. Its status is `NOT_RUN`, not a pass;
-see [Known limitations](docs/KNOWN-LIMITATIONS.md).
+On first launch, the chosen UI language supplies a recognition-language default only when the user
+has not selected one explicitly. Existing installations and explicit choices are preserved.
+
+Actual microphones, long sessions, automatic-versus-fixed-language timing, nine-language accuracy
+and false positives, and installed direct updates remain `NOT_RUN`. Earlier user confirmation that
+model download works on the PC that reported `UnknownIssuer` does not complete the exact 0.1.7
+model-load and app-restart test. See [Known limitations](docs/KNOWN-LIMITATIONS.md).
 
 ### Included features
 
@@ -54,8 +69,7 @@ see [Known limitations](docs/KNOWN-LIMITATIONS.md).
   Turkish, and Russian user interfaces
 
 Meeting notes are rule-based and extractive. **Speaker diarization, a local generative LLM, and
-English translation are not included.** No paid plan, payment, or paid licence is offered for
-this release.
+English translation are not included.**
 
 ### Free 0.1.x limits
 
@@ -71,25 +85,24 @@ this release.
 
 ## Platform boundary
 
-- Release target: Windows x64 with an AVX2-capable CPU
+- Release target: Windows x64 with an AVX2/FMA/F16C-capable CPU
 - Primary target: a currently serviced Windows 11 Home or Pro x64 installation
 - CPU-only build; public CUDA and Vulkan builds are not provided
 - Microsoft Edge WebView2 Runtime is required
 - Not supported: Windows x86, Windows on ARM, Windows S mode, Windows Server, macOS, Linux, or Wine
-- Windows 10 22H2 is out of Microsoft support and is only an unvalidated compatibility
-  observation target, not a supported platform
+- Windows 10 22H2 is only an unvalidated compatibility observation target, not a supported platform
 
 Clean Windows, actual-microphone long-duration, device-matrix, native-language, security-product,
-updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.5. Read the
-[v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5), [known limitations](docs/KNOWN-LIMITATIONS.md), and
+updater, and launch-region legal testing remains explicitly `NOT_RUN` for v0.1.7. Read the
+[v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7), [known limitations](docs/KNOWN-LIMITATIONS.md), and
 [system requirements](SYSTEM_REQUIREMENTS.md) before installation.
 
 ## Download and integrity
 
-Download only from the [fixed official v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
+Download only from the [fixed official v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7)
 or the official PCSSAK download page.
 
-1. Confirm that the release tag is exactly `v0.1.5` and that it is not a source archive, mirror,
+1. Confirm that the release tag is exactly `v0.1.7` and that it is not a source archive, mirror,
    repack, portable build, MSI, x86 build, or ARM build.
 2. Read `RELEASE-NOTES.md` and `BUILD-PROVENANCE.json` from the same release.
 3. Calculate the downloaded installer's SHA-256 and compare it with the installer's entry in
@@ -100,19 +113,19 @@ or the official PCSSAK download page.
 No installer digest or size is hard-coded in these repository documents. The exact values are
 created from the final release bytes and published only in the fixed release assets.
 
-> **v0.1.5 release-note records:**
+> **v0.1.7 release-note records:**
 > The fixed Release asset
-> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/RELEASE-NOTES.md)
+> [`RELEASE-NOTES.md`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.7/RELEASE-NOTES.md)
 > is the distribution note and includes final-build, verification-boundary, and security details;
 > its file digest is listed in
-> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/SHA256SUMS.txt).
-> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/latest.json)
-> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.5/UPDATE-RELEASE.json)
+> [`SHA256SUMS.txt`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.7/SHA256SUMS.txt).
+> [`latest.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.7/latest.json)
+> and [`UPDATE-RELEASE.json`](https://github.com/pcssakinc/pcssak-modusori-releases/releases/download/v0.1.7/UPDATE-RELEASE.json)
 > embed updater-facing `notes`. `UPDATE-RELEASE.json`'s `notes_sha256` hashes exactly that UTF-8
 > `notes` value, not either Markdown file.
 
 > [!WARNING]
-> The v0.1.5 installer and application are not Windows Authenticode-signed. Windows may show
+> The v0.1.7 installer and application are not Windows Authenticode-signed. Windows may show
 > **Unknown publisher**, **Windows protected your PC**, or block execution under Smart App
 > Control or organisation policy. The mandatory Tauri updater `.sig` protects the in-app update
 > bytes but is not an Authenticode publisher identity. Do not disable Windows security controls
@@ -155,7 +168,7 @@ and checked by the submitter.
 ## Documentation
 
 - [Korean introduction](README.ko.md)
-- [v0.1.5 release and release notes](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
+- [v0.1.7 release and release notes](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7)
 - [System requirements](SYSTEM_REQUIREMENTS.md)
 - [Installation and update](docs/INSTALLATION.md)
 - [Known limitations](docs/KNOWN-LIMITATIONS.md)

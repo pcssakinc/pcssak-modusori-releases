@@ -2,24 +2,23 @@
 
 [한국어](SYSTEM_REQUIREMENTS.ko.md) · [Installation](docs/INSTALLATION.md) · [Known limitations](docs/KNOWN-LIMITATIONS.md)
 
-These are the v0.1.5 Free Early Access release boundaries, not a guarantee that every machine
+These are the v0.1.7 Free Version release boundaries, not a guarantee that every machine
 meeting them has been validated. Clean Windows and hardware-matrix testing is `NOT_RUN` for this
 release.
 
 ## Required platform
 
-| Area | v0.1.5 requirement or boundary |
+| Area | v0.1.7 requirement or boundary |
 | --- | --- |
 | Operating system | Currently serviced Windows 11 Home or Pro, x64, with current security updates is the primary target |
 | CPU architecture | x86-64 (`x64`) only |
-| CPU instruction set | AVX2 is mandatory; the app stops before speech processing when AVX2 is unavailable |
+| CPU instruction set | AVX2, FMA, and F16C are all mandatory; the app stops before speech processing if any is unavailable |
 | Runtime | Microsoft Edge WebView2 Runtime |
 | Inference backend | CPU only; no public CUDA or Vulkan build |
 | Installation scope | Per current Windows user; organisation policy and WebView2 can still affect installation |
 
 Not supported: Windows x86, Windows on ARM, Windows S mode, Windows Server, macOS, Linux, and
-Wine. Windows 10 22H2 is out of Microsoft support and is only an unvalidated compatibility
-observation target, not a supported platform.
+Wine. Windows 10 22H2 is only an unvalidated compatibility observation target, not a supported platform.
 
 ## Memory
 
@@ -39,7 +38,7 @@ whole-PC memory configuration.
 Close memory-intensive applications and start with a smaller model on a constrained PC. Speed,
 latency, and memory use vary by CPU, model, media length, and other system load.
 
-On one development PC, only the automatic functional-completion, queue-drain, result-consistency,
+Historical evidence from before 0.1.7, not a repeat measurement of this build: on one development PC, only the automatic functional-completion, queue-drain, result-consistency,
 and inference-throughput gate passed in the deterministic 30-minute Small CPU live-final test:
 146/146 chunks completed without processing failures, with 2.569096× realtime inference and
 standard RTF 0.389242. Memory had no automatic pass threshold. Working set/private memory increased
@@ -48,7 +47,7 @@ observations; one run neither proves nor disproves a long-duration leak. The 36-
 configuration was used, but maximum observed depth was one, so saturation and backpressure were
 not exercised. This test did not exercise an actual microphone, resampling, VAD, application
 session events, UI, stop, or cancellation for 30 minutes. That end-to-end test and the wider real-device performance
-matrix remain `NOT_RUN` for v0.1.5.
+matrix remain `NOT_RUN` for v0.1.7.
 
 ## Storage
 
@@ -66,11 +65,11 @@ matrix remain `NOT_RUN` for v0.1.5.
 - Dictation and microphone captions require a Windows recording device the current user may access.
 - System-audio captions require an active Windows output endpoint that exposes loopback capture.
 - Captions use either microphone or system audio in one session, not both.
-- Free Early Access limits each caption session to 30 minutes; another session may be started.
+- Free Version limits each caption session to 30 minutes; another session may be started.
 - File transcription accepts WAV, MP3, M4A, MP4, FLAC, OGG, OGA, AAC, MKA, and MKV extensions,
   but an extension alone does not guarantee that a particular codec, protected stream, or damaged
   file can be decoded.
-- Free Early Access accepts at most 15 minutes per file.
+- Free Version accepts at most 15 minutes per file.
 
 Microphone, loopback, Bluetooth, USB, docking, sleep/resume, hot-plug, protected media, and codec
 combinations remain `NOT_RUN` on a real device matrix.
@@ -83,16 +82,17 @@ links opened by the user. Once a verified model is installed, core local recogni
 to continue when an update check fails, but this offline behavior has not completed the full
 real-device matrix.
 
-v0.1.5 uses Windows platform certificate verification and supported Windows system-proxy settings
+v0.1.7 uses Windows platform certificate verification and supported Windows system-proxy settings
 for model downloads. Corporate proxies, TLS inspection, firewalls, GitHub or Hugging Face
 availability, disk quotas, and organisation policy can still prevent downloads. PAC/WPAD-only,
 WinHTTP-only, integrated-authentication, TLS-inspection, and unusual proxy configurations remain
 separately unvalidated. Do not disable certificate or hostname verification, antivirus TLS
 inspection, or network and endpoint security controls to work around a failure.
 
-The original `UnknownIssuer` PC's installed v0.1.5 → Tiny/Base download → model load → app restart
-path is `NOT_RUN`. The owner approved performing this compatibility check immediately after the
-free Early Access release; automated and development-PC passes do not prove that PC is fixed.
+An earlier user report confirmed successful model download on the PC that reported `UnknownIssuer`.
+That observation does not complete the exact 0.1.7 install → Tiny/Base download → model load → restart
+path, which remains `NOT_RUN`. Do not disable certificate or hostname verification, antivirus TLS
+inspection, or Windows and organisation security controls to work around a failure.
 
 ## Languages and accessibility
 
@@ -100,9 +100,9 @@ The UI includes English, Korean, Japanese, German, French, Latin American Spanis
 Portuguese, Turkish, and Russian. Whisper is multilingual, but accuracy is not guaranteed by the
 presence of a language choice. Nine-language native-speaker review, Narrator, high contrast,
 multi-monitor, window-resize, touchpad, touch, IME, assistive technology, and 100–200% DPI
-real-device testing are `NOT_RUN` for v0.1.5. The main interface can be set to 100%, 110%, 125%,
+real-device testing are `NOT_RUN` for v0.1.7. The main interface can be set to 100%, 110%, 125%,
 or 150%, but that setting is not evidence that every
 Windows DPI, display, or translated layout has passed real-device review.
 
-See the [fixed v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5)
+See the [fixed v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7)
 and [known limitations](docs/KNOWN-LIMITATIONS.md) for the complete verification disclosure.

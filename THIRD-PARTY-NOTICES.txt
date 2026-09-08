@@ -1,10 +1,10 @@
 ================================================================================
-PCssak ModuSori 0.1.5 - THIRD-PARTY SOFTWARE NOTICES AND ATTRIBUTIONS
+PCssak ModuSori 0.1.7 - THIRD-PARTY SOFTWARE NOTICES AND ATTRIBUTIONS
 ================================================================================
 
-Generated: 2026-08-31
-Cargo.lock SHA-256: 8853d1581388531a908d25cb02332fa6ed802b9fbe8aa84a99dbd407eeb3dde4
-package-lock.json SHA-256: 3fd7b46f7a8dcb65413e3fe3e7f01691da463cd96b3e4a99f0a9acbb8431e685
+Generated: 2026-09-08
+Cargo.lock SHA-256: 1d745b737d6f2965249f67bd2291bc836c7979ed456c62456b141fa0b4a8e50c
+package-lock.json SHA-256: 1a2c731d9d91f700e1a0f58e0703ff7846e5f16501f436260985857c23d32aea
 Target dependency graph: x86_64-pc-windows-msvc
 
 This file was generated from the exact locked dependency graph and license

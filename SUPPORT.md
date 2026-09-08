@@ -1,27 +1,27 @@
 # PCssak ModuSori Support / 지원 안내
 
-PCssak ModuSori 0.1.5 is Free Early Access. Support is best-effort and has no guaranteed response
+PCssak ModuSori 0.1.7 is Free Version. Support is best-effort and has no guaranteed response
 or resolution time. This repository handles public download documentation, reproducible defects,
 and product feedback; it is not a source-code support repository.
 
-PCssak ModuSori 0.1.5는 무료 얼리액세스입니다. 지원은 가능한 범위에서 제공하며 응답·해결
+PCssak ModuSori 0.1.7은 무료 버전입니다. 지원은 가능한 범위에서 제공하며 응답·해결
 시간을 보장하지 않습니다. 이 저장소는 공개 다운로드 문서·재현 가능한 결함·제품 의견을
 다루며 소스 코드 지원 저장소가 아닙니다.
 
-This unsigned build targets currently serviced Windows 11 Home or Pro x64 with AVX2 and limits
-each Free Early Access live-caption session to 30 minutes. Other platform and real-device
+This unsigned build targets currently serviced Windows 11 Home or Pro x64 with AVX2/FMA/F16C and limits
+each Free Version live-caption session to 30 minutes. Other platform and real-device
 boundaries remain in [System requirements](SYSTEM_REQUIREMENTS.md) and
 [Known limitations](docs/KNOWN-LIMITATIONS.md).
 
-이 미서명 빌드는 AVX2를 지원하고 현재 Microsoft 지원 중인 Windows 11 Home 또는 Pro x64를
-대상으로 하며 무료 얼리액세스 실시간 자막은 세션당 최대 30분입니다. 다른 플랫폼·실제 장치
+이 미서명 빌드는 AVX2·FMA·F16C를 지원하고 현재 Microsoft 지원 중인 Windows 11 Home 또는 Pro x64를
+대상으로 하며 무료 버전 실시간 자막은 세션당 최대 30분입니다. 다른 플랫폼·실제 장치
 경계는 [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md)과
 [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)을 확인하십시오.
 
 ## Before reporting / 제보 전 확인
 
 1. Confirm the version shown in the app footer and use only an official fixed GitHub Release.
-2. Read the [fixed v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5),
+2. Read the [fixed v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7),
    [system requirements](SYSTEM_REQUIREMENTS.md), and
    [known limitations](docs/KNOWN-LIMITATIONS.md).
 3. Restart the application normally. Do not reinstall or delete recovery data until you have
@@ -29,22 +29,21 @@ boundaries remain in [System requirements](SYSTEM_REQUIREMENTS.md) and
 4. Search existing issues. Report one reproducible problem or one user need per issue.
 
 1. 앱 하단 버전을 확인하고 공식 고정 GitHub 릴리스만 사용하십시오.
-2. [고정 v0.1.5 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md),
+2. [고정 v0.1.7 릴리스](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7), [시스템 요구사항](SYSTEM_REQUIREMENTS.ko.md),
    [알려진 제한](docs/KNOWN-LIMITATIONS.ko.md)을 확인하십시오.
 3. 앱을 정상적으로 다시 시작하십시오. 반복 여부를 기록하기 전에 재설치하거나 복구 자료를
    지우지 마십시오.
 4. 기존 이슈를 검색하고 이슈 하나에는 재현 가능한 문제나 사용자 요구 하나만 적으십시오.
 
-The original `UnknownIssuer` PC's installed v0.1.5 → Tiny/Base download → model load → restart
-path is `NOT_RUN`; the owner approved testing it immediately after publication of the free Early
-Access release. Do not report it as fixed until that device test passes. Never disable certificate
-or hostname verification, Windows security, organisation policy, or antivirus TLS inspection to
-work around a model download.
+An earlier user report confirmed successful model download on the PC that reported `UnknownIssuer`.
+That observation does not complete the exact 0.1.7 install → Tiny/Base download → model load → restart
+path, which remains `NOT_RUN`. Do not disable certificate or hostname verification, antivirus TLS
+inspection, or Windows and organisation security controls to work around a failure.
 
-최초 `UnknownIssuer`가 난 PC의 v0.1.5 설치→Tiny/Base 다운로드→모델 로드→재시작 경로는
-`NOT_RUN`이며 관리자가 무료 얼리액세스 공개 직후 시험하도록 승인했습니다. 해당 장치 실기가
-통과하기 전에는 해결로 제보하지 마십시오. 모델 다운로드를 우회하려고 인증서·호스트명 검증,
-Windows 보안, 조직 정책 또는 백신 TLS 검사를 끄지 마십시오.
+과거 `UnknownIssuer` PC에서 모델 다운로드가 현재 정상이라는 사용자 확인은 있었습니다.
+정확한 0.1.7 설치→Tiny/Base 다운로드→모델 로드→재시작 전체 경로는 여전히 `NOT_RUN`이며
+다운로드 성공만으로 전체 해결을 주장하지 않습니다. 오류를 우회하려고 인증서·호스트명 검증,
+백신 TLS 검사 또는 Windows·조직 보안 기능을 끄지 마십시오.
 
 ## Bug report / 버그 제보
 
@@ -53,7 +52,7 @@ information:
 
 - exact PCssak ModuSori version and whether it came from the fixed official release;
 - Windows edition, version, architecture, and update level;
-- CPU model, whether AVX2 is available, installed memory, and selected Whisper model;
+- CPU model, whether AVX2, FMA, and F16C are available, installed memory, and selected Whisper model;
 - microphone, output/loopback device, or media container and codec without private content;
 - for a model-download TLS failure, only the redacted technical error and whether a supported
   Windows system proxy is configured; never post proxy credentials or temporary CDN query strings;
@@ -65,7 +64,7 @@ information:
 
 - 정확한 ModuSori 버전과 공식 고정 릴리스에서 받았는지 여부
 - Windows 에디션·버전·아키텍처·업데이트 수준
-- CPU 모델·AVX2 지원 여부·설치 메모리·선택한 Whisper 모델
+- CPU 모델·AVX2·FMA·F16C 지원 여부·설치 메모리·선택한 Whisper 모델
 - 개인 내용이 없는 마이크·출력/루프백 장치 또는 미디어 컨테이너·코덱 정보
 - 모델 다운로드 TLS 실패라면 비식별 기술 오류와 지원 범위의 Windows 시스템 프록시 설정
   여부만 포함하고 프록시 인증정보·CDN 임시 쿼리는 공개하지 않음

@@ -1,21 +1,21 @@
 # 개인정보 처리방침
 
-**PCssak ModuSori — 무료 얼리액세스**
-제품 버전: 0.1.5 · 방침 버전: 0.1.5-2026-08-31 · 적용일: 2026-08-31
+**PCssak ModuSori — 무료 버전**
+제품 버전: 0.1.7 · 방침 버전: 0.1.7-2026-09-08 · 적용일: 2026-09-08
 개인정보 처리·배포 운영자 표시명: **PCSSAK**
 개인정보 문의: privacy@pcssak.com
 
 언어 고지: 이 문서의 국문이 기준본입니다. 아래 영문은 편의 번역이며 별도의 현지 법률 검수를 완료했다는 뜻이 아닙니다. 이용자에게 적용되는 강행법규가 더 큰 권리를 부여하면 해당 법규가 우선합니다.
 
-PCSSAK은 제품과 공식 배포 경로에서 사용하는 운영자 표시명이며, 이 표기만으로 등록 법인명이나 사업자 등록 상태를 단정하지 않습니다. 이번 무료 얼리액세스에서는 실제 우편 주소를 공개하지 않습니다. 현지 강행법규 또는 플랫폼이 추가 신원·주소·대리인 표시를 요구하면 충족하기 전 해당 지역의 배포·지원이 제한될 수 있습니다.
+PCSSAK은 제품과 공식 배포 경로에서 사용하는 운영자 표시명이며, 이 표기만으로 등록 법인명이나 사업자 등록 상태를 단정하지 않습니다. 이번 무료 버전에서는 실제 우편 주소를 공개하지 않습니다. 현지 강행법규 또는 플랫폼이 추가 신원·주소·대리인 표시를 요구하면 충족하기 전 해당 지역의 배포·지원이 제한될 수 있습니다.
 
 ## 1. 적용 범위
 
-이 방침은 PCssak ModuSori 0.1.5 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
+이 방침은 PCssak ModuSori 0.1.7 Windows 앱이 로컬에서 다루는 데이터와 앱이 시작할 수 있는 외부 네트워크 연결을 설명합니다. PCSSAK 홈페이지, GitHub, Hugging Face, Microsoft, 이메일 제공자 등 제3자는 각자의 방침에 따라 별도로 데이터를 처리할 수 있습니다.
 
 ## 2. 앱이 PCSSAK 서버로 보내지 않는 정보
 
-검토 대상 0.1.5 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
+검토 대상 0.1.7 빌드는 다음 내용을 사용자 PC에서 처리하도록 설계되었습니다.
 
 - 마이크·시스템 오디오와 사용자가 선택한 음성·영상 파일
 - 음성 인식 결과, 음성 타이핑 문구와 실시간 자막
@@ -34,7 +34,7 @@ Windows와 Tauri의 실제 폴더 해석은 환경에 따라 다를 수 있으�
 
 - settings.json: UI·인식 언어, 모델 선택, 단축키, 스레드 수, 오디오 장치 식별자, 자막 오버레이 설정, 마지막 내보내기 폴더 등
 - legal-consent.json: 스키마 버전, 사용자가 본 문서 언어, EULA·개인정보 처리방침 버전과 SHA-256, 동의 시각, 녹음 안전 고지 버전·언어·SHA-256과 확인 시각
-- license.key: 오프라인 라이선스 파일이 별도로 사용되는 미래 또는 내부 구성에서만 존재할 수 있음. 0.1.5 무료 얼리액세스는 결제나 유료 라이선스를 판매하지 않음
+- license.key: 이전 개발 구성에서 남아 있을 수 있으나 0.1.7 무료 버전은 이 파일을 읽거나 기능 권한에 사용하지 않음
 
 동의 시각은 사용자 PC 시계를 기준으로 기록하며 독립된 신뢰 시각이나 참여자 동의 증명이 아닙니다. 문서 내용·버전·해시가 달라지거나 파일이 누락·손상되면 앱은 동의하지 않은 상태로 취급하고 다시 확인을 요구할 수 있습니다.
 
@@ -132,8 +132,8 @@ Windows 보안 업데이트, 장치 잠금, 최소 권한 계정, 디스크 암�
 
 # Privacy Notice
 
-**PCssak ModuSori — Free Early Access**
-Product version: 0.1.5 · Notice version: 0.1.5-2026-08-31 · Effective: August 31, 2026
+**PCssak ModuSori — Free Version**
+Product version: 0.1.7 · Notice version: 0.1.7-2026-09-08 · Effective: September 8, 2026
 Privacy and distribution-operator display name: **PCSSAK**
 Privacy contact: privacy@pcssak.com
 
@@ -141,15 +141,15 @@ Privacy contact: privacy@pcssak.com
 
 The Korean text above governs this Notice. This English text is a convenience translation and is not represented as having been separately reviewed by local legal counsel. Mandatory law that grants you greater rights prevails.
 
-PCSSAK is the operator display name used for the product and official distribution channels; the name alone does not assert a particular registered legal-entity or business-registration status. This Free Early Access release does not publish a physical postal address. Where mandatory law or a platform requires additional identity, address, or representative information, distribution or support there may be restricted until the requirement is satisfied.
+PCSSAK is the operator display name used for the product and official distribution channels; the name alone does not assert a particular registered legal-entity or business-registration status. This Free Version does not publish a physical postal address. Where mandatory law or a platform requires additional identity, address, or representative information, distribution or support there may be restricted until the requirement is satisfied.
 
 ## 1. Scope
 
-This Notice explains data kept locally by the PCssak ModuSori 0.1.5 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
+This Notice explains data kept locally by the PCssak ModuSori 0.1.7 Windows app and external network connections the app may initiate. The PCSSAK website and third parties such as GitHub, Hugging Face, Microsoft, Cloudflare, and email providers process data separately under their own notices.
 
 ## 2. Content not sent to a PCSSAK processing server
 
-The reviewed 0.1.5 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting summaries, exports, language processing, and local model inference.
+The reviewed 0.1.7 build is designed to process on the user's PC: microphone and system audio; user-selected audio or video files; dictation, live captions, file transcripts, extractive meeting summaries, exports, language processing, and local model inference.
 
 The app contains no PCSSAK account, advertising, telemetry, usage analytics, tracking SDK, online profiling, or automatic crash-report upload. It does not upload that audio, transcript, or output to a PCSSAK-operated processing server.
 
@@ -157,7 +157,7 @@ The app contains no PCSSAK account, advertising, telemetry, usage analytics, tra
 
 Windows and Tauri may resolve folders differently by environment. The default application identifier is com.pcssak.modusori.
 
-The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and license.key only in a future or internal offline-license configuration. Version 0.1.5 does not sell a paid license.
+The default configuration directory is %APPDATA%\com.pcssak.modusori. It may contain settings.json with UI and recognition language, selected model, hotkey, thread count, audio-device identifiers, overlay preferences, and the last export directory; legal-consent.json with document locale, EULA and Privacy versions and SHA-256 hashes, consent time, and recording-safety notice version, locale, hash, and acknowledgment time; and a license.key left by an earlier development configuration. Version 0.1.7 does not read that file or use it for feature entitlements.
 
 Consent times use the user's PC clock and are not trusted independent timestamps or proof of participant consent. Missing, corrupt, unknown, or changed document records may require consent again.
 

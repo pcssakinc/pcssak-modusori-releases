@@ -1,33 +1,56 @@
-# Known Limitations — PCssak ModuSori v0.1.5
+# Known Limitations — PCssak ModuSori v0.1.7
 
-[한국어](KNOWN-LIMITATIONS.ko.md) · [v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5) · [System requirements](../SYSTEM_REQUIREMENTS.md)
+[한국어](KNOWN-LIMITATIONS.ko.md) · [v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7) · [System requirements](../SYSTEM_REQUIREMENTS.md)
 
-This document describes the Free Early Access boundary. It prevents an untested or absent feature
+This document describes the Free Version boundary. It prevents an untested or absent feature
 from being mistaken for a supported promise.
 
 > [!CAUTION]
-> The owner approved publishing the free v0.1.5 Early Access build before repeating the original
-> `UnknownIssuer` scenario on the same clean Windows PC that reported it. That installed
-> candidate → Tiny/Base download → model load → app restart path is therefore `NOT_RUN`, not a
-> pass. It must be tested immediately after publication, and any required correction will use a
-> higher version without replacing the fixed v0.1.5 assets.
+> Real-device validation for the exact 0.1.7 build is incomplete. An earlier user report confirmed
+> that model download now succeeds on the PC that reported `UnknownIssuer`; exact model load,
+> restart, and the full install-to-reuse path remain `NOT_RUN`. Published assets are not replaced;
+> a correction uses a higher version. A version mentioned in documentation is not publication approval.
 
 ## Platform and installer
 
-- Only a Windows x64 CPU build is provided. AVX2 is mandatory.
+- Only a Windows x64 CPU build is provided. AVX2, FMA, and F16C are all mandatory.
 - The primary target is a currently serviced Windows 11 Home or Pro x64 installation, but the
   clean-install matrix remains `NOT_RUN`.
 - Windows x86, Windows on ARM, Windows S mode, Windows Server, macOS, Linux, and Wine are not
   supported and no installer is provided for them.
-- Windows 10 22H2 is out of Microsoft support. Compatibility observation is `NOT_RUN`; it is not
-  a supported platform.
+- Windows 10 22H2 is not a supported platform. Compatibility observation remains `NOT_RUN`.
 - CUDA and Vulkan are not included. Large models can be slow on CPU-only hardware.
 - The installer and app are not Windows Authenticode-signed. SmartScreen, Smart App Control,
   Defender, another security product, or organisation policy can warn or block execution.
 - Current-user install, repair, update, uninstall, and WebView2 behavior has not completed a clean
   Home/Pro device matrix.
 
-## 0.1.5 cumulative processing and compatibility changes
+## 0.1.7 cumulative processing and compatibility changes
+
+- Session language is reused after a final result contains at least six alphabetic characters,
+  or two consecutive valid final results containing letters identify the same language. Numbers-only
+  output and interim hypotheses cannot lock the language. This reduces dependence on one short
+  first utterance; character count and agreement are not a language-confidence guarantee.
+- Dictation submits pending audio after one second of silence following the final utterance's tail
+  padding, while keeping an eight-second upper bound from utterance start. Stopping immediately
+  after a brief click no longer extends the earlier utterance; resumed speech is retained.
+  Submission timing is not total recognition latency.
+- Normal stopping checks inference progress and actual computation in the same session. After
+  60 seconds without activity or a 15-minute absolute limit, Dictation requests cooperative
+  cancellation and preserves partial results. Live Captions keeps a failed session so the user can
+  stop again. Live Captions has no direct cancel control during stopping; ending remaining work
+  uses the app-exit confirmation flow, which can lose unfinalized output. Only Dictation's
+  explicit-cancel path retains a five-second
+  wait budget, not a promise that all computation physically ends within five seconds.
+- A live-recognition noise filter uses silence evidence for phrase, credit, and repetition rules.
+  Number, time, and amount text is preserved during normalization, and number-containing output is
+  not shortened as repetition. Genuine emphasis and credit mentions have regression coverage.
+  The filter does not apply to file transcription and can still make mistakes on real audio.
+- CPU build settings are fixed independently of the build PC and shell environment. AVX2, FMA,
+  and F16C are required and checked before speech processing. Build-setting checks do not prove
+  a complete executable instruction audit or compatibility on every processor.
+
+The following features are carried forward from earlier patches.
 
 - Main-interface scaling uses Tauri/WebView2 native page zoom and can be set to 100%, 110%, 125%,
   or 150%. The app shell and shared main-content region now have finite WebView boundaries and the
@@ -40,7 +63,7 @@ from being mistaken for a supported promise.
 - Live final utterances use one-candidate greedy decoding for CPU responsiveness. Batch file
   transcription retains an accuracy-focused beam size of five; neither path guarantees correct
   output for a specific speaker or recording.
-- Duplicate stop requests are suppressed. Cancelling remaining transcription keeps text already
+- Duplicate stop requests are suppressed. Dictation's cancel-remaining action keeps text already
   recognized and closes delivery of later results for that session, but actual 30-minute
   microphone/session/UI/stop/cancel real-device testing remains `NOT_RUN`.
 - Dictation recording, input cleanup, remaining conversion, cancellation, and failure have separate
@@ -57,7 +80,7 @@ from being mistaken for a supported promise.
 - Tiny, Base, Small, Medium, and Large-v3 Turbo are all selectable without payment, but no model is
   guaranteed to be accurate or fast for a particular language, speaker, microphone, noise level,
   or CPU.
-- A deterministic 30-minute real-time-paced live-final test on one development PC passed only the
+- Historical evidence from before 0.1.7, not a repeat measurement of this build: a deterministic 30-minute real-time-paced live-final test on one development PC passed only the
   automatic functional-completion, queue-drain, result-consistency, and inference-throughput gate:
   146/146 chunks completed without processing failures, at 2.569096× realtime inference and
   standard RTF 0.389242. Memory had no automatic pass threshold; working set/private increased by
@@ -66,7 +89,7 @@ from being mistaken for a supported promise.
   maximum observed depth was one, so saturation and backpressure were not exercised. It did not
   exercise an actual microphone, resampling, VAD, application session events, UI, stop, or
   cancellation. Actual long-duration meetings and owned nine-language WER/CER,
-  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.5.
+  latency, real-time factor, and memory benchmarks remain `NOT_RUN` for v0.1.7.
 - Models are not bundled. First use needs a Hugging Face download, storage, and successful pinned
   size and SHA-256 verification.
 - Certificate and hostname verification remain mandatory. There is no invalid-certificate bypass,
@@ -85,14 +108,14 @@ from being mistaken for a supported promise.
   signal is not converted into reliable multi-speaker labels.
 - **No local or remote generative LLM.** Meeting notes are deterministic and extractive. They can
   miss context or choose unhelpful lines and still require human review.
-- **No English translation.** The Free Early Access UI blocks translation even when an underlying
+- **No English translation.** The Free Version UI blocks translation even when an underlying
   model can technically perform an X-to-English Whisper task.
-- No cloud account, team administration, collaboration workspace, cloud sync, online transcription,
-  paid plan, payment, or paid licence is offered.
+- No cloud account, team administration, collaboration workspace, cloud sync, or online transcription
+  is offered.
 
 ## Dictation
 
-- Free Early Access allows 15 dictation uses per local calendar day.
+- Free Version allows 15 dictation uses per local calendar day.
 - Automatic text input is limited to a verified Windows target. Password fields, an invalid or
   changed target, mismatched integrity level, residual modifier keys, or inaccessible focus are
   refused rather than guessed.
@@ -103,7 +126,7 @@ from being mistaken for a supported promise.
 ## Live captions and audio devices
 
 - One session uses either microphone or Windows system audio, not both.
-- Free Early Access stops a caption session after 30 minutes; the user may start another session.
+- Free Version stops a caption session after 30 minutes; the user may start another session.
 - Loopback capture depends on a compatible active Windows output endpoint. Protected streams,
   exclusive-mode devices, Bluetooth profiles, docks, virtual devices, sleep/resume, and hot-plug
   behavior can differ.
@@ -114,7 +137,7 @@ from being mistaken for a supported promise.
 
 ## File transcription and export
 
-- Free Early Access accepts at most 15 minutes per file.
+- Free Version accepts at most 15 minutes per file.
 - Supported extensions are WAV, MP3, M4A, MP4, FLAC, OGG, OGA, AAC, MKA, and MKV. A recognised
   extension does not guarantee support for every codec, damaged container, encrypted stream, or
   unusual metadata layout.
@@ -125,7 +148,7 @@ from being mistaken for a supported promise.
 
 ## Meeting notes
 
-- Free Early Access allows three summaries per local calendar day.
+- Free Version allows three summaries per local calendar day.
 - Notes select and organise source lines using deterministic rules. They are not generative and do
   not understand every decision, owner, deadline, negation, joke, or domain term.
 - The source transcript must be checked against the audio first. A transcription error can be
@@ -152,27 +175,29 @@ from being mistaken for a supported promise.
   failure must not be interpreted as proof that no update exists.
 - The user approves download and installation. Active work or unsaved results can block it.
 - Tauri updater signatures protect update bytes but are not Authenticode publisher identity.
-- Separate installed-machine public v0.1.3 → v0.1.5 success, restart race, rollback, replay, and
-  tampered-update tests are `NOT_RUN` for v0.1.5.
+- Separate installed-machine public v0.1.3 → v0.1.7 success, restart race, rollback, replay, and
+  tampered-update tests are `NOT_RUN` for v0.1.7.
 
 ## Verification disclosure
 
 The following real-device work is not represented as passed:
 
-| Validation | v0.1.5 status |
+| Validation | v0.1.7 status |
 | --- | --- |
-| Deterministic 30-minute live-final test on one development PC | Functional completion, queue drain, result consistency, and throughput gate PASS; memory manually observed without a pass threshold; 36-slot configuration used but saturation/backpressure not exercised; actual microphone/session/UI path excluded |
-| Original `UnknownIssuer` clean PC: install v0.1.5 candidate → Tiny download → Base download → model load → app restart | `NOT_RUN` — owner-approved post-publication validation for free Early Access; this is not evidence that the original PC is fixed |
-| Development-PC Windows platform TLS initialization, untrusted local-certificate rejection, Hugging Face one-byte Range, and full Tiny pinned-size/SHA-256 download | PASS within those automated/development-PC boundaries only |
+| Historical pre-0.1.7 deterministic 30-minute live-final test | Functional completion, queue drain, result consistency, and throughput gate PASS; memory manually observed without a pass threshold; 36-slot configuration used but saturation/backpressure not exercised; actual microphone/session/UI path excluded |
+| Previously reported `UnknownIssuer` PC, exact 0.1.7 install/download/load/restart path | NOT_RUN; earlier user-confirmed download success is not a pass for this full path |
+| Earlier development-PC Windows platform TLS initialization, untrusted local-certificate rejection, Hugging Face one-byte Range, and full Tiny pinned-size/SHA-256 download | PASS within those automated/development-PC boundaries only |
 | Manual system proxy, trusted TLS-inspection CA, untrusted CA, PAC/WPAD, and authenticated proxy | NOT_RUN |
 | Clean Windows 11 Home x64 install, launch, core work, uninstall | NOT_RUN |
 | Clean Windows 11 Pro x64 install, launch, core work, uninstall | NOT_RUN |
-| Windows 10 22H2 compatibility observation | NOT_RUN; Windows 10 is out of Microsoft support |
+| Windows 10 22H2 compatibility observation | NOT_RUN; not a supported platform |
 | Intel and AMD device matrix, microphones, loopback, sleep, device removal | NOT_RUN |
 | WebView2 DPI 100–200%, multi-monitor, window resize, touchpad, touch, IME, and assistive technology | NOT_RUN |
 | Tray, duplicate launch, and update-restart races | NOT_RUN |
 | Actual 30-minute microphone/VAD/session/UI/stop/cancel flow | NOT_RUN |
 | Actual long-meeting and nine-language owned benchmark audio | NOT_RUN |
+| Automatic versus fixed-language latency, nine-language filter false positives, and Medium/Turbo stopping | NOT_RUN |
+| Full executable instruction audit and AVX-512 build-PC/AVX2-only actual-PC matrix | NOT_RUN |
 | Nine-language native-speaker review of every screen and error | NOT_RUN |
 | Defender, SmartScreen, Smart App Control, and third-party security-product behavior | NOT_RUN |
 | Normal and tampered in-app update on a separate installed machine | NOT_RUN |
