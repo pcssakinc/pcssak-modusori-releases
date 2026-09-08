@@ -2,8 +2,7 @@
 
 [한국어](QUALITY-AND-SAFETY.ko.md) · [Known limitations](KNOWN-LIMITATIONS.md) · [Security](../SECURITY.md)
 
-This document explains the engineering boundaries and evidence expected for the v0.1.5 Free Early
-Access release. It is not a certificate that the app is error-free, accurate for every language,
+This document explains the engineering boundaries and evidence expected for the v0.1.7 Free Version release. It is not a certificate that the app is error-free, accurate for every language,
 legally suitable in every jurisdiction, or approved by a security product.
 
 ## Local, user-controlled workflow
@@ -14,7 +13,7 @@ legally suitable in every jurisdiction, or approved by a security product.
 4. The user reviews the transcript, captions, or extractive meeting notes.
 5. Only an explicit save or copy action sends results to a user-chosen destination.
 
-Free Early Access limits each live-caption session to 30 minutes and allows another session after
+Free Version limits each live-caption session to 30 minutes and allows another session after
 the limit. This product limit is not evidence that a real 30-minute microphone/session/UI path has
 passed.
 
@@ -27,8 +26,9 @@ network metadata processing. Public reports are not local or private.
 
 - First use requires active acceptance of the complete EULA and Privacy Notice. A changed document
   version or hash requires renewed acceptance.
-- The first recording use presents a longer safety notice; every capture session also requires a
-  short confirmation.
+- Before each recording confirmation, the app checks the selected source without capturing audio.
+  The first recording shows the full safety notice with exactly one unchecked confirmation; later
+  sessions also require one unchecked confirmation. Missing devices stop the flow before that dialog.
 - The UI and caption overlay identify active capture and provide a stop path.
 - Microphone and system-audio recording can capture other people, notifications, copyrighted
   content, confidential discussion, or regulated information. The user must obtain every required
@@ -55,7 +55,7 @@ make every third-party application or IME compatible.
 - Recording, stopping, and processing are separate user-visible states. Recording duration freezes
   when capture ends; processing reports elapsed time and measured backlog without inventing an
   estimated completion time.
-- Duplicate stop requests are suppressed. A separate cancel-remaining action keeps text already
+- Duplicate stop requests are suppressed. Dictation's separate cancel-remaining action keeps text already
   recognized, closes delivery of later session output, and cooperatively cancels pending inference.
 - Unsaved frontend results and unacknowledged backend output participate in close and update
   protection. Discarding results requires an explicit choice.
@@ -63,6 +63,31 @@ make every third-party application or IME compatible.
   second audio engine.
 
 These controls reduce common loss and concurrency risks; they do not replace a separate backup.
+
+## 0.1.7 speech-processing boundary
+
+- Session language is reused after a final result contains at least six alphabetic characters,
+  or two consecutive valid final results containing letters identify the same language. Numbers-only
+  output and interim hypotheses cannot lock the language. This reduces dependence on one short
+  first utterance; character count and agreement are not a language-confidence guarantee.
+- Dictation submits pending audio after one second of silence following the final utterance's tail
+  padding, while keeping an eight-second upper bound from utterance start. Stopping immediately
+  after a brief click no longer extends the earlier utterance; resumed speech is retained.
+  Submission timing is not total recognition latency.
+- Normal stopping checks inference progress and actual computation in the same session. After
+  60 seconds without activity or a 15-minute absolute limit, Dictation requests cooperative
+  cancellation and preserves partial results. Live Captions keeps a failed session so the user can
+  stop again. Live Captions has no direct cancel control during stopping; ending remaining work
+  uses the app-exit confirmation flow, which can lose unfinalized output. Only Dictation's
+  explicit-cancel path retains a five-second
+  wait budget, not a promise that all computation physically ends within five seconds.
+- A live-recognition noise filter uses silence evidence for phrase, credit, and repetition rules.
+  Number, time, and amount text is preserved during normalization, and number-containing output is
+  not shortened as repetition. Genuine emphasis and credit mentions have regression coverage.
+  The filter does not apply to file transcription and can still make mistakes on real audio.
+- CPU build settings are fixed independently of the build PC and shell environment. AVX2, FMA,
+  and F16C are required and checked before speech processing. Build-setting checks do not prove
+  a complete executable instruction audit or compatibility on every processor.
 
 ## Layout and accessibility safety
 
@@ -104,7 +129,7 @@ same-user malware, unlocked-device access, memory inspection, backups, or synchr
   third-party notices, and an SPDX SBOM. Publication permits only the release process's exact
   asset allowlist.
 
-The Tauri signature is not Windows Authenticode publisher identity. The v0.1.5 installer remains
+The Tauri signature is not Windows Authenticode publisher identity. The v0.1.7 installer remains
 unsigned to Windows and can be warned about or blocked.
 
 ## Automated validation layer
@@ -118,7 +143,7 @@ Before publication, the exact candidate is required to record successful results
 - single-instance, close, update, model, consent, recovery, quota, export, and concurrency contracts;
 - nine-UI-language key, message-argument, locale-number, and error-catalogue consistency;
 - dependency advisory, licence, source-policy, npm audit, secret-hygiene, and workflow static checks;
-- legal Early Access gate and bundled-document equality;
+- legal Free Version gate and bundled-document equality;
 - NSIS architecture/configuration, updater-signature, signed-manifest, SBOM, exact-asset, and
   SHA-256 verification.
 
@@ -127,7 +152,7 @@ candidate. A source-level pass does not prove a clean Windows installation, driv
 speech accuracy, long-duration behavior, native translation quality, security-product reputation,
 or legal suitability.
 
-On one development PC, the deterministic 30-minute live-final test passed only the automatic
+Historical evidence from before 0.1.7, not a repeat measurement of this build: on one development PC, the deterministic 30-minute live-final test passed only the automatic
 functional-completion, queue-drain, result-consistency, and inference-throughput gate. It completed
 146/146 chunks without processing failures and measured 2.569096× realtime inference with standard
 RTF 0.389242. Memory had no automatic pass threshold; working set/private increased by
@@ -139,24 +164,21 @@ stop, or cancellation for 30 minutes.
 
 ## Human and real-device validation layer
 
-For v0.1.5, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
+For v0.1.7, clean Windows 11 Home/Pro, Windows 10 observation, Intel/AMD and audio-device matrices,
 actual 30-minute microphone/VAD/session/UI/stop/cancel operation, actual long-meeting and
 nine-language owned benchmarks, nine-language native-speaker review, WebView2 DPI 100–200%,
 multi-monitor, window-resize, touchpad, touch, IME and assistive-technology checks,
-security-product behavior, separate-machine public v0.1.3 → v0.1.5 updater testing, and
+security-product behavior, separate-machine public v0.1.3 → v0.1.7 updater testing, and
 launch-region legal review are all `NOT_RUN`. The exact matrix is in
 [Known limitations](KNOWN-LIMITATIONS.md) and the
-[fixed v0.1.5 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.5).
+[fixed v0.1.7 release](https://github.com/pcssakinc/pcssak-modusori-releases/releases/tag/v0.1.7).
 
-The original `UnknownIssuer` clean PC's installed v0.1.5 → Tiny/Base download → model load → app
-restart path is also `NOT_RUN`. Windows-platform TLS initialization, rejection of an untrusted
-local certificate, a Hugging Face one-byte Range response, and a full Tiny pinned-size/SHA-256
-download passed only within automated or development-PC boundaries. The owner approved testing
-the original PC immediately after free Early Access publication; this decision is not a device
-compatibility pass. Never disable certificate or hostname verification, antivirus TLS inspection,
-or Windows and organisation security controls to produce a pass.
+An earlier user report confirmed successful model download on the PC that reported `UnknownIssuer`.
+That observation does not complete the exact 0.1.7 install → Tiny/Base download → model load → restart
+path, which remains `NOT_RUN`. Do not disable certificate or hostname verification, antivirus TLS
+inspection, or Windows and organisation security controls to work around a failure.
 
-Free Early Access deliberately collects real-user evidence after publication. A user report is
+Real-user evidence complements the automated checks. A user report is
 not automatically a pass or benchmark result; reproduction method, non-sensitive sample, device
 context, expected output, and actual output are needed.
 
